@@ -462,13 +462,13 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="w-full max-w-[480px] min-h-screen border-x-4 border-black flex flex-col relative overflow-hidden bg-cnmb-bg">
+    <div className="w-full max-w-[480px] min-h-screen flex flex-col relative bg-cnmb-bg" style={{ borderLeft: '4px solid black', borderRight: '4px solid black' }}>
       {/* Header */}
       <header className="bg-cnmb-white border-b-4 border-black sticky top-0 z-50 flex justify-between items-center w-full px-3 h-14">
         <button className="text-cnmb-on-bg hover:bg-cnmb-lime hover:text-black transition-none active:translate-x-[2px] active:translate-y-[2px] p-1 border-2 border-transparent">
           <span className="text-xl">☰</span>
         </button>
-        <div className="font-display text-xl font-bold uppercase tracking-tighter bg-cnmb-lime text-cnmb-lime-dark px-2 border-2 border-black neo-shadow">
+        <div className="font-display text-xl font-bold uppercase tracking-tighter bg-cnmb-lime text-cnmb-lime-dark px-2 border-2 border-black" style={{ boxShadow: '3px 3px 0px 0px rgba(0,0,0,1)' }}>
           CNMB
         </div>
         <button className="text-cnmb-on-bg hover:bg-cnmb-lime hover:text-black transition-none active:translate-x-[2px] active:translate-y-[2px] p-1 border-2 border-transparent">
@@ -482,7 +482,7 @@ export default function RefactoredHome() {
         onCancel={() => setShowLineConversionModal(false)}
       />
 
-      <main className="flex-grow flex flex-col p-3 gap-4">
+      <main className="flex-grow flex flex-col p-3 gap-4 overflow-hidden">
         {!showLoadingScene ? (
           <>
             <EnhancedTitle />
@@ -512,11 +512,11 @@ export default function RefactoredHome() {
               )}
 
               {diagnosisState === 'error' && (
-                <div className="bg-cnmb-white border-4 border-black neo-shadow-lg p-6 text-center animate-fadeIn">
+                <div className="bg-cnmb-white border-4 border-black p-4 text-center animate-fadeIn" style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}>
                   <h3 className="text-xl font-display font-bold text-cnmb-on-bg uppercase mb-2">ERROR</h3>
                   <p className="text-cnmb-gray text-sm mb-4 whitespace-pre-line font-body">{error}</p>
                   <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
-                    className="px-6 py-3 bg-black text-cnmb-lime border-4 border-black neo-shadow font-display font-bold uppercase active:translate-x-[2px] active:translate-y-[2px] active:shadow-neo-sm transition-none">
+                    className="px-6 py-3 bg-black text-cnmb-lime border-4 border-black font-display font-bold uppercase active:translate-x-[2px] active:translate-y-[2px] transition-none" style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}>
                     もう一度試す
                   </button>
                 </div>
@@ -524,19 +524,21 @@ export default function RefactoredHome() {
             </SimpleInputContainer>
 
             {/* Marquee Divider */}
-            <div className="border-y-4 border-black bg-black text-cnmb-lime overflow-hidden py-1 whitespace-nowrap flex mt-4">
-              <span className="font-display text-sm uppercase px-4 inline-block animate-marquee">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
-              <span className="font-display text-sm uppercase px-4 inline-block animate-marquee">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
+            <div className="border-y-4 border-black bg-black text-cnmb-lime overflow-hidden py-1 whitespace-nowrap mt-2">
+              <div className="animate-marquee inline-block">
+                <span className="font-display text-sm uppercase px-4">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
+                <span className="font-display text-sm uppercase px-4">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
+              </div>
             </div>
 
             {/* Info Cards Grid */}
             <section className="grid grid-cols-2 gap-2">
-              <div className="border-4 border-black bg-cnmb-white p-3 neo-shadow flex flex-col gap-1">
+              <div className="border-4 border-black bg-cnmb-white p-3 flex flex-col gap-1" style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}>
                 <span className="text-2xl">⚠️</span>
                 <h3 className="font-display text-sm font-bold uppercase text-cnmb-on-bg" style={{ letterSpacing: '0.05em' }}>高精度分析</h3>
                 <p className="font-body text-sm text-cnmb-gray leading-tight">リアルタイム市場データを解析。</p>
               </div>
-              <div className="border-4 border-black bg-cnmb-white p-3 neo-shadow flex flex-col gap-1">
+              <div className="border-4 border-black bg-cnmb-white p-3 flex flex-col gap-1" style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}>
                 <span className="text-2xl">📊</span>
                 <h3 className="font-display text-sm font-bold uppercase text-cnmb-on-bg" style={{ letterSpacing: '0.05em' }}>データ解析</h3>
                 <p className="font-body text-sm text-cnmb-gray leading-tight">AIで即座に結果を抽出。</p>

@@ -5,7 +5,7 @@
 @layer base {
   @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600&family=Space+Grotesk:wght@700&display=swap');
 
-  html { overflow-y: scroll; scrollbar-gutter: stable; }
+  html { overflow-y: scroll; overflow-x: hidden; scrollbar-gutter: stable; }
 
   body {
     @apply text-cnmb-on-bg min-h-screen;
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   * { scrollbar-width: none; -ms-overflow-style: none; }
@@ -27,9 +28,12 @@
 }
 
 @layer utilities {
-  .neo-shadow { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
-  .neo-shadow-lg { box-shadow: 8px 8px 0px 0px rgba(0,0,0,1); }
-
   .animate-fadeIn { animation: fadeIn 0.2s ease-in; }
   @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 15s linear infinite; }
 }

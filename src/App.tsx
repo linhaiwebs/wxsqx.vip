@@ -1,6 +1,5 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import { initializeGoogleTracking } from './lib/googleTracking';
 
@@ -50,7 +49,6 @@ function App() {
           />
         </Routes>
       </Suspense>
-      <Footer />
     </>
   );
 }

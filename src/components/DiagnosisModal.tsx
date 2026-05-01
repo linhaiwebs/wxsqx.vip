@@ -23,12 +23,12 @@ export default function DiagnosisModal({ isOpen, onClose, analysis, stockCode, s
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3 backdrop-blur-none" style={{ touchAction: 'none' }}>
-      <div className="w-full max-w-[400px] border-4 border-black bg-cnmb-lime p-6 neo-shadow-lg flex flex-col gap-4 relative">
+    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3" style={{ touchAction: 'none' }}>
+      <div className="w-full max-w-[400px] border-4 border-black bg-cnmb-lime p-4 flex flex-col gap-3 relative" style={{ boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)' }}>
         <button onClick={onClose} className="absolute top-0 right-0 border-l-4 border-b-4 border-black bg-white p-1 hover:bg-black hover:text-white transition-none z-10">
           <X className="w-5 h-5" />
         </button>
-        <h2 className="font-display text-[28px] font-bold text-black uppercase border-b-4 border-black pb-2" style={{ letterSpacing: '-0.02em' }}>{stockName}（{stockCode}）解析結果</h2>
+        <h2 className="font-display text-[24px] sm:text-[28px] font-bold text-black uppercase border-b-4 border-black pb-2 pr-10" style={{ letterSpacing: '-0.02em' }}>{stockName}（{stockCode}）解析結果</h2>
         <div ref={contentRef} className="flex flex-col gap-2 overflow-y-auto max-h-[60vh]">
           {isConnecting ? (
             <div className="text-center py-6">
@@ -44,7 +44,7 @@ export default function DiagnosisModal({ isOpen, onClose, analysis, stockCode, s
                 <AnalysisRenderer text={analysis} />
                 {isStreaming && <span className="inline-block w-2 h-4 animate-pulse ml-1 bg-black"></span>}
               </div>
-              <button onClick={onLineConversion} className="mt-4 w-full border-4 border-black bg-white text-black font-display text-xl uppercase py-3 neo-shadow hover:bg-black hover:text-cnmb-lime active:translate-x-[2px] active:translate-y-[2px] active:shadow-neo-sm transition-none flex justify-center items-center gap-2">
+              <button onClick={onLineConversion} className="mt-2 w-full border-4 border-black bg-white text-black font-display text-lg sm:text-xl uppercase py-3 hover:bg-black hover:text-cnmb-lime active:translate-x-[2px] active:translate-y-[2px] transition-none flex justify-center items-center gap-2" style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}>
                 <span>LINEでレポートを受け取る</span><ExternalLink className="w-5 h-5" />
               </button>
               <div className="mt-1 border-2 border-black bg-cnmb-white p-2">
