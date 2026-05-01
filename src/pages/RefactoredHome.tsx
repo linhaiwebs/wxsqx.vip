@@ -461,8 +461,19 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
-      <RadialDarkBackground />
+    <div className="w-full max-w-[480px] min-h-screen border-x-4 border-black flex flex-col relative overflow-hidden bg-cnmb-bg">
+      {/* Header */}
+      <header className="bg-cnmb-white border-b-4 border-black sticky top-0 z-50 flex justify-between items-center w-full px-3 h-14">
+        <button className="text-cnmb-on-bg hover:bg-cnmb-lime hover:text-black transition-none active:translate-x-[2px] active:translate-y-[2px] p-1 border-2 border-transparent">
+          <span className="text-xl">☰</span>
+        </button>
+        <div className="font-display text-xl font-bold uppercase tracking-tighter bg-cnmb-lime text-cnmb-lime-dark px-2 border-2 border-black neo-shadow">
+          CNMB
+        </div>
+        <button className="text-cnmb-on-bg hover:bg-cnmb-lime hover:text-black transition-none active:translate-x-[2px] active:translate-y-[2px] p-1 border-2 border-transparent">
+          <span className="text-xl">⚡</span>
+        </button>
+      </header>
 
       <LineConversionConfirmModal
         isOpen={showLineConversionModal}
@@ -470,63 +481,75 @@ export default function RefactoredHome() {
         onCancel={() => setShowLineConversionModal(false)}
       />
 
-      <div className="relative z-10 flex-1 flex flex-col overflow-visible">
+      <main className="flex-grow flex flex-col p-3 gap-4">
         {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col justify-center py-6 space-y-4">
-            <AnimatedCatRobot />
-
+          <>
             <EnhancedTitle />
-
             <SimpleInputContainer>
-              <div className="space-y-6">
-                <ModernStockInput
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onStockSelect={handleStockSelect}
-                  autoSelectFirst={isUrlAutoSelectRef.current}
-                />
+              <ModernStockInput
+                value={inputValue}
+                onChange={setInputValue}
+                onStockSelect={handleStockSelect}
+                autoSelectFirst={isUrlAutoSelectRef.current}
+              />
 
-                {loading && (
-                  <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
-                  </div>
-                )}
+              {loading && (
+                <div className="text-center py-4 animate-fadeIn">
+                  <div className="inline-block animate-spin h-8 w-8 border-4 border-cnmb-gray-light border-t-black"></div>
+                  <p className="mt-2 text-cnmb-gray text-sm font-display uppercase tracking-wider">LOADING...</p>
+                </div>
+              )}
 
-                {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
-                  </div>
-                )}
+              {error && diagnosisState !== 'error' && (
+                <div className="border-l-4 border-black bg-cnmb-white border-2 border-black p-3 text-center animate-fadeIn">
+                  <p className="text-cnmb-on-bg text-sm font-bold font-body">{error}</p>
+                </div>
+              )}
 
-                {!loading && diagnosisState === 'initial' && (
-                  <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                )}
+              {!loading && diagnosisState === 'initial' && (
+                <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+              )}
 
-                {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
-                    >
-                      もう一度試す
-                    </button>
-                  </div>
-                )}
-              </div>
+              {diagnosisState === 'error' && (
+                <div className="bg-cnmb-white border-4 border-black neo-shadow-lg p-6 text-center animate-fadeIn">
+                  <h3 className="text-xl font-display font-bold text-cnmb-on-bg uppercase mb-2">ERROR</h3>
+                  <p className="text-cnmb-gray text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                  <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                    className="px-6 py-3 bg-black text-cnmb-lime border-4 border-black neo-shadow font-display font-bold uppercase active:translate-x-[2px] active:translate-y-[2px] active:shadow-neo-sm transition-none">
+                    もう一度試す
+                  </button>
+                </div>
+              )}
             </SimpleInputContainer>
-          </div>
+
+            {/* Marquee Divider */}
+            <div className="border-y-4 border-black bg-black text-cnmb-lime overflow-hidden py-1 whitespace-nowrap flex mt-4">
+              <span className="font-display text-sm uppercase px-4 inline-block animate-marquee">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
+              <span className="font-display text-sm uppercase px-4 inline-block animate-marquee">SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC // SYSTEM ONLINE // AI_STOCK_ANALYZER // CNMB // DATA SYNC //</span>
+            </div>
+
+            {/* Info Cards Grid */}
+            <section className="grid grid-cols-2 gap-2">
+              <div className="border-4 border-black bg-cnmb-white p-3 neo-shadow flex flex-col gap-1">
+                <span className="text-2xl">⚠️</span>
+                <h3 className="font-display text-sm font-bold uppercase text-cnmb-on-bg" style={{ letterSpacing: '0.05em' }}>高精度分析</h3>
+                <p className="font-body text-sm text-cnmb-gray leading-tight">リアルタイム市場データを解析。</p>
+              </div>
+              <div className="border-4 border-black bg-cnmb-white p-3 neo-shadow flex flex-col gap-1">
+                <span className="text-2xl">📊</span>
+                <h3 className="font-display text-sm font-bold uppercase text-cnmb-on-bg" style={{ letterSpacing: '0.05em' }}>データ解析</h3>
+                <p className="font-body text-sm text-cnmb-gray leading-tight">AIで即座に結果を抽出。</p>
+              </div>
+            </section>
+          </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <InlineLoadingScene isVisible={showLoadingScene} />
           </div>
         )}
-      </div>
+      </main>
+
+      <Footer />
 
       <DiagnosisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}

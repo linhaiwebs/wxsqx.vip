@@ -1,29 +1,12 @@
 export default function EnhancedTitle() {
   return (
-    <div className="flex flex-col items-center gap-4 px-4">
-      <div
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl backdrop-blur-sm"
-        style={{
-          backgroundColor: 'rgba(128, 128, 128, 0.25)'
-        }}
-      >
-        <div
-          className="w-3 h-3 rounded-full animate-pulse"
-          style={{
-            backgroundColor: '#4ade80',
-            boxShadow: '0 0 10px #4ade80'
-          }}
-        />
-        <h1 className="text-3xl md:text-4xl font-bold text-white">
-          AI株式診断分析
-        </h1>
-      </div>
-
-      <div className="text-center space-y-2 max-w-2xl">
-        <p className="text-base md:text-lg text-white/90 leading-relaxed">
-          銘柄コードを入力して、AIによる詳細な株式分析を受けましょう。
-        </p>
-      </div>
-    </div>
+    <section className="border-4 border-black bg-cnmb-lime p-4 neo-shadow-lg flex flex-col gap-2 relative z-10">
+      <h1 className="font-display text-[48px] leading-none font-bold text-cnmb-lime-dark uppercase break-words" style={{ letterSpacing: '-0.04em' }}>
+        AI株価を<br/>解析せよ
+      </h1>
+      <p className="font-body text-lg text-cnmb-on-surface-variant font-bold border-l-4 border-black pl-2 py-1 bg-cnmb-white mt-2" style={{ letterSpacing: '-0.01em' }}>
+        銘柄コードからシグナルを抽出。市場データを即座に判定します。
+      </p>
+    </section>
   );
 }

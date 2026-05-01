@@ -141,7 +141,8 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
   };
 
   return (
-    <div className="relative w-full animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+    <div className="relative w-full animate-fadeIn">
+      <label className="font-display text-sm bg-black text-white w-max px-2 py-1 border-2 border-black border-b-0 uppercase" style={{ letterSpacing: '0.05em' }}>銘柄コード入力</label>
       <div className="relative">
         <input
           ref={inputRef}
@@ -150,8 +151,8 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
           placeholder="例: 7203 / トヨタ / ソニー"
-          className="w-full px-4 py-3 text-base text-gray-900 bg-[#F4F4F4] rounded-xl border-0 focus:ring-2 focus:ring-gray-300 focus:outline-none placeholder-gray-400 transition-all duration-200"
-          style={{ height: '52px' }}
+          className="w-full border-4 border-black bg-cnmb-white p-2 font-body text-lg text-cnmb-on-bg focus:ring-0 focus:outline-none focus:bg-cnmb-lime transition-colors"
+          style={{ height: '48px' }}
           disabled={isLoading}
         />
       </div>
@@ -159,13 +160,13 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
       {showDropdown && currentResults.length > 0 && createPortal(
         <div
           ref={dropdownRef}
-          className="fixed z-[9999] bg-white rounded-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          className="fixed z-[9999] bg-cnmb-white overflow-hidden animate-fadeIn border-4 border-black"
           style={{
             left: `${dropdownPosition.left}px`,
             top: `${dropdownPosition.top}px`,
             width: `${dropdownPosition.width}px`,
             maxHeight: '400px',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
+            boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
             pointerEvents: 'auto'
           }}
         >

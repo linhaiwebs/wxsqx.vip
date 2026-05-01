@@ -1,38 +1,15 @@
-import AnimatedCatRobot from './AnimatedCatRobot';
 import LoadingProgressBars from './LoadingProgressBars';
 
-interface InlineLoadingSceneProps {
-  isVisible: boolean;
-}
+interface InlineLoadingSceneProps { isVisible: boolean; }
 
 export default function InlineLoadingScene({ isVisible }: InlineLoadingSceneProps) {
   if (!isVisible) return null;
-
   return (
-    <div className="w-full animate-fadeIn px-4">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">
-          AI分析中
-        </h2>
-        <p className="text-sm md:text-base text-gray-300">
-          数秒お待ちください...
-        </p>
-      </div>
-
-      <div className="flex items-center justify-center mb-8">
-        <AnimatedCatRobot />
-      </div>
-
-      <div className="max-w-md mx-auto">
+    <div className="w-full animate-fadeIn py-4">
+      <div className="bg-cnmb-bg border-4 border-black neo-shadow-lg p-4 flex flex-col gap-3">
+        <h2 className="font-display text-[32px] font-bold text-cnmb-on-bg uppercase" style={{ letterSpacing: '-0.02em' }}>AI分析中</h2>
+        <p className="font-display text-sm text-cnmb-gray uppercase tracking-wider">PROCESSING...</p>
         <LoadingProgressBars isVisible={isVisible} />
-      </div>
-
-      <div className="mt-6 text-center">
-        <p className="text-xs text-gray-400 leading-relaxed">
-          すべてのデータは公開されている市場情報を使用しており、
-          <br className="hidden sm:inline" />
-          公開市場データに基づいて分析を行っています
-        </p>
       </div>
     </div>
   );
