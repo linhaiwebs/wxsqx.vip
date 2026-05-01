@@ -461,8 +461,18 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
+    <div className="min-h-screen relative flex flex-col overflow-visible bg-qsdj-bg kitsch-pattern">
       <RadialDarkBackground />
+
+      {/* Fixed Magenta Header — from KETCHI design */}
+      <header className="bg-qsdj-magenta text-qsdj-on-bg font-display font-black italic tracking-tighter uppercase fixed top-0 w-full z-50 border-b-4 border-qsdj-on-bg shadow-hard flex justify-between items-center px-4 h-16">
+        <div className="flex items-center"><span className="text-2xl">⚡</span></div>
+        <div className="text-3xl font-black text-qsdj-on-bg drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">QSDJ</div>
+        <button onClick={runDiagnosis} disabled={!inputValue || !stockCode || loading} className="text-qsdj-on-bg font-bold hover:bg-qsdj-lime hover:-rotate-1 transition-transform active:translate-y-1 active:translate-x-1 active:shadow-none bg-white border-2 border-qsdj-on-bg px-3 py-1 shadow-hard-sm disabled:opacity-50">診断する</button>
+      </header>
+
+      {/* Decorative teal tape strip */}
+      <div className="absolute top-32 left-0 w-full h-8 bg-qsdj-teal border-y-4 border-qsdj-on-bg transform -rotate-3 z-[-1] opacity-50"></div>
 
       <LineConversionConfirmModal
         isOpen={showLineConversionModal}
@@ -470,11 +480,9 @@ export default function RefactoredHome() {
         onCancel={() => setShowLineConversionModal(false)}
       />
 
-      <div className="relative z-10 flex-1 flex flex-col overflow-visible">
+      <div className="relative z-10 flex-1 flex flex-col overflow-visible pt-24 pb-12">
         {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col justify-center py-6 space-y-4">
-            <AnimatedCatRobot />
-
+          <div className="flex-1 flex flex-col justify-center py-6 px-4 gap-8">
             <EnhancedTitle />
 
             <SimpleInputContainer>
@@ -488,14 +496,14 @@ export default function RefactoredHome() {
 
                 {loading && (
                   <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
+                    <div className="inline-block animate-spin h-8 w-8 border-4 border-qsdj-surface-highest border-t-qsdj-magenta" style={{ borderRadius: 0 }}></div>
+                    <p className="mt-2 text-qsdj-on-surface-variant text-sm font-label uppercase tracking-widest">LOADING...</p>
                   </div>
                 )}
 
                 {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
+                  <div className="bg-qsdj-magenta/10 border-l-4 border-qsdj-magenta p-3 text-center animate-fadeIn">
+                    <p className="text-qsdj-magenta-dark text-sm font-bold font-body">{error}</p>
                   </div>
                 )}
 
@@ -504,22 +512,37 @@ export default function RefactoredHome() {
                 )}
 
                 {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
-                    >
+                  <div className="bg-qsdj-surface border-4 border-qsdj-on-bg shadow-hard-lg p-6 text-center animate-fadeIn">
+                    <h3 className="text-xl font-display font-black text-qsdj-magenta-dark italic uppercase mb-2">ERROR</h3>
+                    <p className="text-qsdj-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                    <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                      className="px-6 py-3 bg-qsdj-lime text-qsdj-lime-dark border-4 border-qsdj-on-bg shadow-hard font-display font-extrabold uppercase active:translate-y-1 active:translate-x-1 active:shadow-none transition-all">
                       もう一度試す
                     </button>
                   </div>
                 )}
               </div>
             </SimpleInputContainer>
+
+            {/* Floating decorative icons — from KETCHI design */}
+            <div className="relative max-w-md mx-auto w-full h-48 border-4 border-qsdj-on-bg shadow-hard-lg overflow-hidden transform -rotate-2 z-10 bg-qsdj-magenta-dark mt-4">
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-qsdj-magenta via-qsdj-teal to-qsdj-lime opacity-80">
+                <div className="text-center">
+                  <p className="font-display text-[48px] font-black text-white leading-none" style={{ letterSpacing: '-0.05em' }}>AI</p>
+                  <p className="font-label text-sm text-white uppercase tracking-widest mt-1">STOCK ANALYZER</p>
+                </div>
+              </div>
+              <div className="absolute bottom-2 left-2 bg-white border-4 border-qsdj-on-bg px-3 py-1 font-label text-sm font-bold text-qsdj-on-bg transform rotate-3 shadow-hard-sm">
+                #AI_STOCK
+              </div>
+            </div>
+
+            <div className="absolute bottom-40 right-4 w-12 h-12 bg-qsdj-magenta border-4 border-qsdj-on-bg shadow-hard-sm-lg flex items-center justify-center z-20" style={{ borderRadius: '50%' }}>
+              <span className="text-white text-lg">♥</span>
+            </div>
+            <div className="absolute top-64 left-2 w-10 h-10 bg-qsdj-teal border-4 border-qsdj-on-bg shadow-hard-sm-lg transform rotate-45 flex items-center justify-center z-20">
+              <span className="text-white text-sm -rotate-45">★</span>
+            </div>
           </div>
         ) : (
           <div className="flex-1 flex items-center justify-center">

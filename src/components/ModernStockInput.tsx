@@ -142,30 +142,33 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
 
   return (
     <div className="relative w-full animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-      <div className="relative">
-        <input
-          ref={inputRef}
-          type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={handleInputFocus}
-          placeholder="例: 7203 / トヨタ / ソニー"
-          className="w-full px-4 py-3 text-base text-gray-900 bg-[#F4F4F4] rounded-xl border-0 focus:ring-2 focus:ring-gray-300 focus:outline-none placeholder-gray-400 transition-all duration-200"
-          style={{ height: '52px' }}
-          disabled={isLoading}
-        />
+      <div className="flex flex-col gap-2">
+        <label className="font-label text-sm text-qsdj-on-bg uppercase tracking-widest font-bold">銘柄コード (Stock Code)</label>
+        <div className="relative">
+          <input
+            ref={inputRef}
+            type="text"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={handleInputFocus}
+            placeholder="例: 7203 / トヨタ / ソニー"
+            className="w-full bg-white border-4 border-qsdj-on-bg shadow-inset-dark p-4 focus:outline-none focus:border-qsdj-magenta-dark focus:bg-qsdj-magenta-pink transition-colors font-body text-base text-qsdj-on-bg placeholder:text-qsdj-outline"
+            style={{ height: '52px' }}
+            disabled={isLoading}
+          />
+        </div>
       </div>
 
       {showDropdown && currentResults.length > 0 && createPortal(
         <div
           ref={dropdownRef}
-          className="fixed z-[9999] bg-white rounded-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          className="fixed z-[9999] bg-white overflow-hidden animate-fadeIn border-4 border-qsdj-on-bg"
           style={{
             left: `${dropdownPosition.left}px`,
             top: `${dropdownPosition.top}px`,
             width: `${dropdownPosition.width}px`,
             maxHeight: '400px',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
+            boxShadow: '4px 4px 0px 0px #1c1b1b',
             pointerEvents: 'auto'
           }}
         >

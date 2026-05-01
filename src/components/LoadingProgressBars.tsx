@@ -10,85 +10,29 @@ export default function LoadingProgressBars({ isVisible }: LoadingProgressBarsPr
   const [stage3, setStage3] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) {
-      setStage1(0);
-      setStage2(0);
-      setStage3(0);
-      return;
-    }
-
-    const stage1Timer = setTimeout(() => {
-      const interval1 = setInterval(() => {
-        setStage1((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval1);
-            return 100;
-          }
-          return prev + 5;
-        });
-      }, 30);
-
-      return () => clearInterval(interval1);
-    }, 100);
-
-    const stage2Timer = setTimeout(() => {
-      const interval2 = setInterval(() => {
-        setStage2((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval2);
-            return 100;
-          }
-          return prev + 4;
-        });
-      }, 35);
-
-      return () => clearInterval(interval2);
-    }, 600);
-
-    const stage3Timer = setTimeout(() => {
-      const interval3 = setInterval(() => {
-        setStage3((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval3);
-            return 100;
-          }
-          return prev + 3;
-        });
-      }, 40);
-
-      return () => clearInterval(interval3);
-    }, 1200);
-
-    return () => {
-      clearTimeout(stage1Timer);
-      clearTimeout(stage2Timer);
-      clearTimeout(stage3Timer);
-    };
+    if (!isVisible) { setStage1(0); setStage2(0); setStage3(0); return; }
+    const t1 = setTimeout(() => { const i = setInterval(() => { setStage1(p => { if (p >= 100) { clearInterval(i); return 100; } return p + 5; }); }, 30); }, 100);
+    const t2 = setTimeout(() => { const i = setInterval(() => { setStage2(p => { if (p >= 100) { clearInterval(i); return 100; } return p + 4; }); }, 35); }, 600);
+    const t3 = setTimeout(() => { const i = setInterval(() => { setStage3(p => { if (p >= 100) { clearInterval(i); return 100; } return p + 3; }); }, 40); }, 1200);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [isVisible]);
 
   const stages = [
-    { label: 'データ収集中', progress: stage1, color: '#ffffff' },
-    { label: 'AI分析中', progress: stage2, color: '#ffffff' },
-    { label: 'レポート生成中', progress: stage3, color: '#ffffff' },
+    { label: 'DATA_COLLECT', progress: stage1, color: '#00a2a2' },
+    { label: 'AI_ANALYZE', progress: stage2, color: '#ff00ff' },
+    { label: 'REPORT_GEN', progress: stage3, color: '#c1f100' },
   ];
 
   return (
-    <div className="w-full space-y-4">
-      {stages.map((stage, index) => (
-        <div key={index} className="space-y-1">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-white">{stage.label}</span>
-            <span className="text-xs text-gray-300">{Math.floor(stage.progress)}%</span>
+    <div className="w-full space-y-3">
+      {stages.map((stage, i) => (
+        <div key={i}>
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-xs font-label font-bold text-qsdj-on-bg uppercase tracking-widest">{stage.label}</span>
+            <span className="text-xs font-body text-qsdj-outline">{Math.floor(stage.progress)}%</span>
           </div>
-          <div className="relative w-full h-2 bg-gray-800/50 rounded-full overflow-hidden border border-white/30">
-            <div
-              className="absolute top-0 left-0 h-full transition-all duration-300 ease-out rounded-full"
-              style={{
-                width: `${stage.progress}%`,
-                backgroundColor: stage.color,
-                boxShadow: `0 0 10px ${stage.color}80`,
-              }}
-            />
+          <div className="w-full h-4 bg-qsdj-surface-highest border-4 border-qsdj-on-bg">
+            <div className="h-full transition-all duration-300" style={{ width: `${stage.progress}%`, backgroundColor: stage.color }} />
           </div>
         </div>
       ))}

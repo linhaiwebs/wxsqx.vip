@@ -6,8 +6,10 @@ interface SimpleInputContainerProps {
 
 export default function SimpleInputContainer({ children }: SimpleInputContainerProps) {
   return (
-    <div className="max-w-md mx-auto px-6 py-8">
-      {children}
+    <div className="max-w-md mx-auto px-4 py-4">
+      <div className="flex flex-col gap-6">
+        {children}
+      </div>
     </div>
   );
 }
