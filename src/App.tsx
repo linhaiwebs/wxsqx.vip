@@ -14,10 +14,10 @@ const AdminLogin = lazy(() => import('./pages/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+  <div className="min-h-screen flex items-center justify-center bg-white">
     <div className="text-center">
-      <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-      <p className="text-gray-600 text-lg">読み込み中...</p>
+      <div className="inline-block animate-spin rounded-none h-12 w-12 border-4 border-black border-t-[#ff6b00] mb-4"></div>
+      <p className="text-black text-lg font-headline uppercase tracking-widest">LOADING...</p>
     </div>
   </div>
 );

@@ -1,36 +1,36 @@
 import { ArrowLeft, Mail, Clock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-ehxv-50 via-white to-ehxv-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
+        <a
+          href="https://ehxv.live/"
+          className="inline-flex items-center gap-2 text-ehxv-600 hover:text-ehxv-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
-        </Link>
+        </a>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <Mail className="w-6 h-6 text-blue-700" />
+            <div className="bg-ehxv-100 p-3 rounded-lg">
+              <Mail className="w-6 h-6 text-ehxv-700" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900">お問い合わせ</h1>
           </div>
 
           <div className="prose max-w-none">
             <p className="text-gray-700 leading-relaxed mb-8">
-              AI株式診断サービスをご利用いただき、誠にありがとうございます。
+              EHXV AI株式情報サービスをご利用いただき、誠にありがとうございます。
               ご質問、ご要望、不具合のご報告など、お気軽にお問い合わせください。
             </p>
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">受付時間</h2>
-              <div className="bg-blue-50 rounded-lg p-4 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+              <div className="bg-ehxv-50 rounded-lg p-4 flex items-start gap-3">
+                <Clock className="w-5 h-5 text-ehxv-600 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">24時間受付</p>
                   <p className="text-sm text-gray-600">
@@ -54,7 +54,7 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ehxv-500 focus:border-transparent"
                     placeholder="山田 太郎"
                   />
                 </div>
@@ -68,7 +68,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ehxv-500 focus:border-transparent"
                     placeholder="example@email.com"
                   />
                 </div>
@@ -81,7 +81,7 @@ export default function Contact() {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ehxv-500 focus:border-transparent"
                   >
                     <option value="">選択してください</option>
                     <option value="service">サービス内容について</option>
@@ -102,7 +102,7 @@ export default function Contact() {
                     name="message"
                     required
                     rows={8}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ehxv-500 focus:border-transparent resize-none"
                     placeholder="お問い合わせ内容を詳しくご記入ください"
                   />
                 </div>
@@ -112,10 +112,10 @@ export default function Contact() {
                     <input
                       type="checkbox"
                       required
-                      className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="mt-1 w-4 h-4 text-ehxv-600 border-gray-300 rounded focus:ring-ehxv-500"
                     />
                     <span className="text-sm text-gray-700">
-                      <a href="/privacy" className="text-blue-600 hover:underline">プライバシーポリシー</a>
+                      <a href="https://ehxv.live/privacy" className="text-ehxv-600 hover:underline">プライバシーポリシー</a>
                       に同意します <span className="text-red-600">*</span>
                     </span>
                   </label>
@@ -123,7 +123,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+                  className="w-full bg-ehxv-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-ehxv-700 transition-colors shadow-md"
                 >
                   送信する
                 </button>
@@ -141,7 +141,7 @@ export default function Contact() {
               <h2 className="text-xl font-bold text-gray-900 mb-4">よくあるお問い合わせ</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
                 よくあるご質問については、
-                <a href="/faq" className="text-blue-600 hover:underline font-semibold">FAQ（よくある質問）</a>
+                <a href="https://ehxv.live/faq" className="text-ehxv-600 hover:underline font-semibold">FAQ（よくある質問）</a>
                 のページもご参照ください。
               </p>
             </section>
@@ -175,7 +175,7 @@ export default function Contact() {
                 <strong>受付時間:</strong> 平日 9:00〜18:00（土日祝日を除く）
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>メールアドレス:</strong> support@valuepal.jp
+                <strong>メールアドレス:</strong> support@ehxv.live
               </p>
               <p className="text-sm text-gray-700">
                 <strong>お問い合わせ受付:</strong> 24時間受付（回答は営業時間内）

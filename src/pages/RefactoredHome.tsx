@@ -461,7 +461,8 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
+    <div className="min-h-screen relative flex flex-col overflow-visible bg-white">
+      <div className="noise-overlay"></div>
       <RadialDarkBackground />
 
       <LineConversionConfirmModal
@@ -488,14 +489,14 @@ export default function RefactoredHome() {
 
                 {loading && (
                   <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
+                    <div className="inline-block animate-spin rounded-none h-8 w-8 border-4 border-black border-t-[#ff6b00]"></div>
+                    <p className="mt-2 text-black text-sm font-headline uppercase tracking-wider">LOADING...</p>
                   </div>
                 )}
 
                 {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
+                  <div className="bg-red-50 border-[3px] border-black p-3 text-center animate-fadeIn">
+                    <p className="text-red-800 text-sm font-bold font-headline">{error}</p>
                   </div>
                 )}
 
@@ -504,15 +505,15 @@ export default function RefactoredHome() {
                 )}
 
                 {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
+                  <div className="bg-red-50 border-[3px] border-black p-4 text-center animate-fadeIn">
+                    <h3 className="text-lg font-bold text-red-800 mb-2 font-headline uppercase">ERROR</h3>
+                    <p className="text-red-800 text-sm mb-4 whitespace-pre-line font-body">{error}</p>
                     <button
                       onClick={() => {
                         setDiagnosisState('initial');
                         setError(null);
                       }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
+                      className="px-6 py-3 bg-[#ff6b00] text-black font-bold border-[3px] border-black brutal-active hard-shadow font-headline uppercase transition-none"
                     >
                       もう一度試す
                     </button>
