@@ -488,7 +488,7 @@ export default function RefactoredHome() {
 
                 {loading && (
                   <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
+                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-tsdy-400"></div>
                     <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
                   </div>
                 )}
@@ -512,7 +512,7 @@ export default function RefactoredHome() {
                         setDiagnosisState('initial');
                         setError(null);
                       }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
+                      className="px-6 py-3 bg-tsdy-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-tsdy-700"
                     >
                       もう一度試す
                     </button>

@@ -1,22 +1,22 @@
 import { ArrowLeft, FileText } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-tsdy-50 via-white to-tsdy-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
+        <a
+          href="https://tsdy.live/"
+          className="inline-flex items-center gap-2 text-tsdy-600 hover:text-tsdy-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
-        </Link>
+        </a>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <FileText className="w-6 h-6 text-blue-700" />
+            <div className="bg-tsdy-100 p-3 rounded-lg">
+              <FileText className="w-6 h-6 text-tsdy-700" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900">利用規約</h1>
           </div>
@@ -27,7 +27,7 @@ export default function Terms() {
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">第1条（適用）</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                本規約は、AI株式診断サービス（以下「当サービス」といいます）の利用に関する条件を、当サービスを利用する全ての方（以下「利用者」といいます）と株式会社アドバンティ（以下「当社」といいます）との間で定めるものです。
+                本規約は、TSDY AI株式情報サービス（以下「当サービス」といいます）の利用に関する条件を、当サービスを利用する全ての方（以下「利用者」といいます）と株式会社アドバンティ（以下「当社」といいます）との間で定めるものです。
               </p>
               <p className="text-gray-700 leading-relaxed">
                 利用者は、当サービスを利用することにより、本規約の全ての内容に同意したものとみなされます。

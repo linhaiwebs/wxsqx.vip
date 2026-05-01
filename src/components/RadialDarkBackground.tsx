@@ -4,12 +4,12 @@ export default function RadialDarkBackground() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle at center, #091855 0%, #0d0f1f 100%)'
+          background: 'radial-gradient(circle at center, #0a2e2b 0%, #070f1a 100%)'
         }}
       />
 
       <div className="absolute inset-0">
-        {Array.from({ length: 50 }, (_, i) => {
+        {Array.from({ length: 40 }, (_, i) => {
           const x = Math.random() * 100;
           const y = Math.random() * 100;
           const size = Math.random() * 2 + 0.5;

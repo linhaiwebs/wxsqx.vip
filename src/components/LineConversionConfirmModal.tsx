@@ -67,7 +67,7 @@ export default function LineConversionConfirmModal({
             </button>
             <button
               onClick={onConfirm}
-              className="flex-1 py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
+              className="flex-1 py-3 px-4 bg-gradient-to-r from-tsdy-600 to-tsdy-700 hover:from-tsdy-700 hover:to-tsdy-800 text-white font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
             >
               <span>理解して移動</span>
               <ExternalLink className="w-4 h-4" />

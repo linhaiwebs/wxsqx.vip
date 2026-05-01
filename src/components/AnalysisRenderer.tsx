@@ -20,7 +20,7 @@ const parseNumber = (text: string): ReactNode[] => {
       parts.push(text.substring(lastIndex, match.index));
     }
     parts.push(
-      <span key={match.index} className="text-blue-600 font-semibold text-lg">
+      <span key={match.index} className="text-tsdy-400 font-semibold text-lg">
         {match[0]}
       </span>
     );

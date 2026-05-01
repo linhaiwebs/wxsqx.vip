@@ -4,18 +4,19 @@ export default function EnhancedTitle() {
       <div
         className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl backdrop-blur-sm"
         style={{
-          backgroundColor: 'rgba(128, 128, 128, 0.25)'
+          backgroundColor: 'rgba(20, 184, 166, 0.15)',
+          border: '1px solid rgba(45, 212, 191, 0.2)'
         }}
       >
         <div
           className="w-3 h-3 rounded-full animate-pulse"
           style={{
-            backgroundColor: '#4ade80',
-            boxShadow: '0 0 10px #4ade80'
+            backgroundColor: '#2dd4bf',
+            boxShadow: '0 0 10px #2dd4bf'
           }}
         />
         <h1 className="text-3xl md:text-4xl font-bold text-white">
-          AI株式診断分析
+          TSDY AI株式診断
         </h1>
       </div>
 

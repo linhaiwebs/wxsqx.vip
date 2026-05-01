@@ -1,22 +1,21 @@
 import { ArrowLeft, FileText, Building, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function SpecifiedCommercialTransactionAct() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-tsdy-50 via-white to-tsdy-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
+        <a
+          href="https://tsdy.live/"
+          className="inline-flex items-center gap-2 text-tsdy-600 hover:text-tsdy-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
-        </Link>
+        </a>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <FileText className="w-6 h-6 text-blue-700" />
+            <div className="bg-tsdy-100 p-3 rounded-lg">
+              <FileText className="w-6 h-6 text-tsdy-700" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900">特定商取引法に基づく表記</h1>
           </div>
@@ -28,8 +27,8 @@ export default function SpecifiedCommercialTransactionAct() {
           <div className="space-y-6">
             <section className="border-b border-gray-200 pb-6">
               <div className="flex items-start gap-4">
-                <div className="bg-blue-50 p-3 rounded-lg flex-shrink-0">
-                  <Building className="w-5 h-5 text-blue-600" />
+                <div className="bg-tsdy-50 p-3 rounded-lg flex-shrink-0">
+                  <Building className="w-5 h-5 text-tsdy-600" />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">販売業者情報</h2>
@@ -77,7 +76,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">support@valuepal.jp</dd>
+                      <dd className="sm:col-span-2 text-tsdy-600">support@tsdy.live</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
@@ -94,19 +93,19 @@ export default function SpecifiedCommercialTransactionAct() {
                 <h3 className="font-bold text-gray-900 mb-3">提供サービス</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>AI技術を活用した株式情報の提供および分析サービス</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>株価データ、チャート、テクニカル指標の表示</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>AI分析レポートの生成と提供</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>投資情報の提供（情報提供のみ、投資助言には該当しません）</span>
                   </li>
                 </ul>
@@ -115,7 +114,7 @@ export default function SpecifiedCommercialTransactionAct() {
 
             <section className="border-b border-gray-200 pb-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">サービス料金</h2>
-              <div className="bg-blue-50 rounded-lg p-5 border-2 border-blue-200">
+              <div className="bg-tsdy-50 rounded-lg p-5 border-2 border-tsdy-200">
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -147,15 +146,15 @@ export default function SpecifiedCommercialTransactionAct() {
                 </p>
                 <ul className="mt-3 space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>クレジットカード決済（Visa、Mastercard、JCB、American Express等）</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>銀行振込</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>コンビニ決済</span>
                   </li>
                 </ul>
@@ -187,11 +186,11 @@ export default function SpecifiedCommercialTransactionAct() {
                 </p>
                 <ul className="mt-3 space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>システムの不具合により、サービスが正常に提供されなかった場合</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-tsdy-600 mt-1">•</span>
                     <span>当社の責に帰すべき事由により、サービス提供が不可能となった場合</span>
                   </li>
                 </ul>
@@ -204,9 +203,9 @@ export default function SpecifiedCommercialTransactionAct() {
                 <p className="text-gray-700 leading-relaxed mb-3">
                   お客様の個人情報は、個人情報保護法に基づき適切に管理いたします。
                   詳細は
-                  <Link to="/privacy" className="text-blue-600 hover:underline font-semibold mx-1">
+                  <a href="https://tsdy.live/privacy" className="text-tsdy-600 hover:underline font-semibold mx-1">
                     プライバシーポリシー
-                  </Link>
+                  </a>
                   をご確認ください。
                 </p>
               </div>
@@ -237,25 +236,25 @@ export default function SpecifiedCommercialTransactionAct() {
 
             <section>
               <h2 className="text-xl font-bold text-gray-900 mb-4">お問い合わせ</h2>
-              <div className="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
+              <div className="bg-tsdy-50 rounded-lg p-6 border-2 border-tsdy-200">
                 <p className="text-gray-700 leading-relaxed mb-4">
                   特定商取引法に関するご質問、その他お問い合わせは、
                   以下の方法でご連絡ください。
                 </p>
                 <div className="flex items-start gap-3 mb-4">
-                  <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-tsdy-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">support@valuepal.jp</p>
+                    <p className="text-tsdy-600">support@tsdy.live</p>
                     <p className="text-sm text-gray-600 mt-1">お問い合わせは24時間受付（回答は営業時間内）</p>
                   </div>
                 </div>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                <a
+                  href="https://tsdy.live/contact"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-tsdy-600 text-white rounded-lg hover:bg-tsdy-700 transition-colors font-semibold"
                 >
                   お問い合わせフォームへ
-                </Link>
+                </a>
               </div>
             </section>
           </div>

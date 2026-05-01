@@ -1,7 +1,6 @@
 import { X, ExternalLink, Loader2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import AnalysisRenderer from './AnalysisRenderer';
-import AIAccuracyChart from './AIAccuracyChart';
 
 interface DiagnosisModalProps {
   isOpen: boolean;
@@ -122,7 +121,7 @@ export default function DiagnosisModal({
             <button
               onClick={onLineConversion}
               className="relative w-full font-bold py-4 px-6 rounded-2xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm mt-6 hover:scale-105 overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.95) 0%, rgba(126, 34, 206, 0.95) 50%, rgba(107, 33, 168, 0.95) 100%)', color: 'white' }}
+              style={{ background: 'linear-gradient(135deg, rgba(15, 118, 110, 0.95) 0%, rgba(20, 184, 166, 0.95) 50%, rgba(45, 212, 191, 0.95) 100%)', color: 'white' }}
             >
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute w-2 h-2 bg-white/40 rounded-full animate-float-1" style={{ top: '20%', left: '15%', animationDelay: '0s' }} />

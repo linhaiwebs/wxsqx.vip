@@ -1,22 +1,22 @@
 import { ArrowLeft, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-tsdy-50 via-white to-tsdy-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
+        <a
+          href="https://tsdy.live/"
+          className="inline-flex items-center gap-2 text-tsdy-600 hover:text-tsdy-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
-        </Link>
+        </a>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <Shield className="w-6 h-6 text-blue-700" />
+            <div className="bg-tsdy-100 p-3 rounded-lg">
+              <Shield className="w-6 h-6 text-tsdy-700" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900">プライバシーポリシー</h1>
           </div>
@@ -27,7 +27,7 @@ export default function Privacy() {
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">1. 基本方針</h2>
               <p className="text-gray-700 leading-relaxed">
-                AI株式診断サービス（以下「当サービス」）の運営者である株式会社アドバンティ（以下「当社」）は、利用者の個人情報の重要性を認識し、
+                TSDY AI株式情報サービス（以下「当サービス」）の運営者である株式会社アドバンティ（以下「当社」）は、利用者の個人情報の重要性を認識し、
                 個人情報の保護に関する法律（個人情報保護法）を遵守し、適切に取り扱い、保護することに努めます。
               </p>
             </section>
@@ -62,14 +62,14 @@ export default function Privacy() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">4. Google AdSense について</h2>
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
+              <div className="bg-tsdy-50 border-l-4 border-tsdy-500 p-4 mb-4">
                 <p className="text-gray-800 font-semibold mb-2">第三者配信事業者による広告配信</p>
                 <p className="text-gray-700 leading-relaxed mb-3">
                   当サービスでは、Google AdSense を使用して広告を配信しています。
                   Google AdSense は Cookie を使用して、利用者が当サイトや他のサイトにアクセスした際の情報に基づいて広告を配信します。
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  利用者は、<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Googleの広告設定ページ</a>で、
+                  利用者は、<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-tsdy-600 hover:underline">Googleの広告設定ページ</a>で、
                   パーソナライズド広告を無効にすることができます。
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function Privacy() {
                 設立: 2015年9月
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                メール: support@ziustock.com
+                メール: support@tsdy.live
               </p>
               <p className="text-sm text-gray-700">
                 受付時間: 24時間受付（返信は営業日内）

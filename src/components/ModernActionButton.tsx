@@ -12,7 +12,7 @@ export default function ModernActionButton({ onClick, disabled = false }: Modern
           disabled={disabled}
           className="relative w-full text-white font-bold py-4 px-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50 overflow-hidden"
           style={{
-            background: disabled ? '#D1D5DB' : 'linear-gradient(135deg, rgba(147, 51, 234, 0.95) 0%, rgba(126, 34, 206, 0.95) 50%, rgba(107, 33, 168, 0.95) 100%)',
+            background: disabled ? '#D1D5DB' : 'linear-gradient(135deg, rgba(15, 118, 110, 0.95) 0%, rgba(20, 184, 166, 0.95) 50%, rgba(45, 212, 191, 0.95) 100%)',
             height: '56px'
           }}
         >
