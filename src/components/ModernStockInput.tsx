@@ -149,9 +149,9 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
-          placeholder="例: 7203 / トヨタ / ソニー"
-          className="w-full px-4 py-3 text-base text-gray-900 bg-[#F4F4F4] rounded-xl border-0 focus:ring-2 focus:ring-gray-300 focus:outline-none placeholder-gray-400 transition-all duration-200"
-          style={{ height: '52px' }}
+          placeholder="銘柄コードまたは企業名を入力"
+          className="w-full bg-qdhs-surface-lowest border-2 border-black font-body text-base text-qdhs-on-surface p-2 focus:outline-none focus:border-qdhs-red focus:ring-0 placeholder-qdhs-on-surface-variant shadow-inner"
+          style={{ height: '48px' }}
           disabled={isLoading}
         />
       </div>
@@ -159,13 +159,13 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
       {showDropdown && currentResults.length > 0 && createPortal(
         <div
           ref={dropdownRef}
-          className="fixed z-[9999] bg-white rounded-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          className="fixed z-[9999] bg-qdhs-surface overflow-hidden animate-fadeIn border-thick"
           style={{
             left: `${dropdownPosition.left}px`,
             top: `${dropdownPosition.top}px`,
             width: `${dropdownPosition.width}px`,
             maxHeight: '400px',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
+            boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
             pointerEvents: 'auto'
           }}
         >
