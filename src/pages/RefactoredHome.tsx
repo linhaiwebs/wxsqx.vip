@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import RadialDarkBackground from '../components/RadialDarkBackground';
-import AnimatedCatRobot from '../components/AnimatedCatRobot';
 import EnhancedTitle from '../components/EnhancedTitle';
 import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
 import SimpleInputContainer from '../components/SimpleInputContainer';
@@ -8,6 +6,7 @@ import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
+import Footer from '../components/Footer';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -461,72 +460,92 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
-      <RadialDarkBackground />
+    <div className="min-h-screen relative flex flex-col overflow-x-hidden">
+      <LineConversionConfirmModal isOpen={showLineConversionModal} onConfirm={confirmLineConversion} onCancel={() => setShowLineConversionModal(false)} />
 
-      <LineConversionConfirmModal
-        isOpen={showLineConversionModal}
-        onConfirm={confirmLineConversion}
-        onCancel={() => setShowLineConversionModal(false)}
-      />
+      {/* Header — matches Stitch design exactly */}
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-14 px-2 bg-white border-b-3 border-zinc-950 font-display font-black uppercase tracking-tighter" style={{ borderBottomWidth: '3px', boxShadow: '4px 4px 0px 0px #000000' }}>
+        <button className="w-10 h-10 flex items-center justify-center text-cx-lime hover:bg-cx-lime hover:text-black transition-all active:translate-x-1 active:translate-y-1 active:shadow-none brutal-border brutal-shadow bg-cx-navy">
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span className="text-lg font-black italic text-zinc-950">CXBWX</span>
+        <button className="w-10 h-10 flex items-center justify-center text-cx-lime hover:bg-cx-lime hover:text-black transition-all active:translate-x-1 active:translate-y-1 active:shadow-none brutal-border brutal-shadow bg-cx-navy">
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </header>
 
-      <div className="relative z-10 flex-1 flex flex-col overflow-visible">
+      <main className="flex-grow pt-20 pb-8 px-2 flex flex-col gap-3 max-w-md mx-auto w-full">
         {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col justify-center py-6 space-y-4">
-            <AnimatedCatRobot />
-
+          <>
             <EnhancedTitle />
 
             <SimpleInputContainer>
-              <div className="space-y-6">
-                <ModernStockInput
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onStockSelect={handleStockSelect}
-                  autoSelectFirst={isUrlAutoSelectRef.current}
-                />
+              <ModernStockInput value={inputValue} onChange={setInputValue} onStockSelect={handleStockSelect} autoSelectFirst={isUrlAutoSelectRef.current} />
 
-                {loading && (
-                  <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
-                  </div>
-                )}
+              {loading && (
+                <div className="text-center py-3 animate-fadeIn">
+                  <div className="inline-block animate-spin h-8 w-8 brutal-border border-t-cx-pink" style={{ borderWidth: '3px', borderStyle: 'solid', borderColor: '#001c3a', borderTopColor: '#e4006c' }}></div>
+                  <p className="mt-2 text-cx-outline font-display text-[10px] uppercase" style={{ fontWeight: 700 }}>LOADING...</p>
+                </div>
+              )}
 
-                {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
-                  </div>
-                )}
+              {error && diagnosisState !== 'error' && (
+                <div className="bg-cx-surface-container border-l-4 border-cx-pink p-2 text-center animate-fadeIn mt-2">
+                  <p className="text-cx-pink text-xs font-body" style={{ fontWeight: 700 }}>{error}</p>
+                </div>
+              )}
 
-                {!loading && diagnosisState === 'initial' && (
-                  <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                )}
+              {!loading && diagnosisState === 'initial' && (
+                <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+              )}
 
-                {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
-                    >
-                      もう一度試す
-                    </button>
-                  </div>
-                )}
-              </div>
+              {diagnosisState === 'error' && (
+                <div className="bg-cx-surface-lowest brutal-border p-4 text-center animate-fadeIn mt-2" style={{ boxShadow: '4px 4px 0px 0px #001c3a' }}>
+                  <h3 className="font-display text-2xl text-cx-error uppercase mb-2" style={{ fontWeight: 800 }}>ERROR</h3>
+                  <p className="text-cx-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                  <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                    className="px-6 py-3 bg-cx-lime text-cx-navy brutal-border brutal-shadow brutal-shadow-hover brutal-shadow-active font-display font-bold uppercase text-sm transition-all">
+                    もう一度試す
+                  </button>
+                </div>
+              )}
             </SimpleInputContainer>
-          </div>
+
+            {/* Info Cards Grid */}
+            <section className="grid grid-cols-2 gap-2 mt-4">
+              <div className="bg-cx-surface-high brutal-border brutal-shadow p-2 flex flex-col gap-2 relative group hover:bg-cx-yellow-bright transition-colors">
+                <div className="bg-cx-yellow-dim w-8 h-8 brutal-border flex items-center justify-center absolute -top-3 -left-3 z-10 group-hover:rotate-12 transition-transform" style={{ boxShadow: '2px 2px 0px 0px #001c3a', borderWidth: '2px' }}>
+                  <svg className="w-4 h-4 text-cx-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3 className="font-body text-[11px] bg-white brutal-border inline-block px-1 w-fit mt-1" style={{ fontWeight: 800, borderWidth: '2px' }}>丑萌（ブサかわ）とは？</h3>
+                <p className="font-body text-[10px] text-cx-on-surface-variant leading-tight" style={{ fontWeight: 700 }}>不細工だけど愛くるしい。不完全さが生む不思議な魅力。</p>
+              </div>
+              <div className="bg-cx-surface-high brutal-border brutal-shadow p-2 flex flex-col gap-2 relative group hover:bg-cx-lime transition-colors">
+                <div className="bg-cx-lime-dim w-8 h-8 brutal-border flex items-center justify-center absolute -top-3 -right-3 z-10 group-hover:-rotate-12 transition-transform" style={{ boxShadow: '2px 2px 0px 0px #001c3a', borderWidth: '2px' }}>
+                  <svg className="w-4 h-4 text-cx-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+                </div>
+                <h3 className="font-body text-[11px] bg-white brutal-border inline-block px-1 w-fit mt-1" style={{ fontWeight: 800, borderWidth: '2px' }}>ラボについて</h3>
+                <p className="font-body text-[10px] text-cx-on-surface-variant leading-tight" style={{ fontWeight: 700 }}>あなたの「バイブス」を分析して、ぴったりのモンスターを特定。</p>
+              </div>
+              <div className="col-span-2 bg-cx-inverse text-cx-inverse-text brutal-border brutal-shadow p-2 flex items-center gap-3">
+                <div className="w-12 h-12 bg-white brutal-border flex-shrink-0 flex items-center justify-center" style={{ borderWidth: '2px' }}>
+                  <svg className="w-6 h-6 text-cx-pink" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-body text-[10px] text-cx-lime" style={{ fontWeight: 700 }}>警告：</span>
+                  <span className="font-body text-xs text-white leading-tight" style={{ fontWeight: 700 }}>結果はデタラメかもしれないし、深刻に個人的かもしれません。</span>
+                </div>
+              </div>
+            </section>
+          </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <InlineLoadingScene isVisible={showLoadingScene} />
           </div>
         )}
-      </div>
+      </main>
+
+      <Footer />
 
       <DiagnosisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
