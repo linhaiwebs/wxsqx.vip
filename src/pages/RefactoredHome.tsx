@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import RadialDarkBackground from '../components/RadialDarkBackground';
-import AnimatedCatRobot from '../components/AnimatedCatRobot';
 import EnhancedTitle from '../components/EnhancedTitle';
 import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
 import SimpleInputContainer from '../components/SimpleInputContainer';
@@ -8,6 +6,7 @@ import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
+import Footer from '../components/Footer';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -461,72 +460,66 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
-      <RadialDarkBackground />
+    <div className="min-h-screen relative flex flex-col overflow-x-hidden">
+      <LineConversionConfirmModal isOpen={showLineConversionModal} onConfirm={confirmLineConversion} onCancel={() => setShowLineConversionModal(false)} />
 
-      <LineConversionConfirmModal
-        isOpen={showLineConversionModal}
-        onConfirm={confirmLineConversion}
-        onCancel={() => setShowLineConversionModal(false)}
-      />
+      <header className="fixed top-0 w-full z-50 flex items-center px-4 h-12 justify-between bg-zinc-950/90 backdrop-blur-xl border-b-2 border-cyan-400" style={{ boxShadow: '0 0 10px rgba(6,182,212,0.5)' }}>
+        <div className="flex items-center gap-2 text-fuchsia-500 font-display tracking-tighter uppercase font-black text-sm">
+          <svg className="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-2-1h-6v-2h6v2zM7.5 17l-1.41-1.41L8.67 13l-2.59-2.59L7.5 9l4 4-4 4z"/></svg>
+          MCBQW
+        </div>
+        <div className="text-fuchsia-600 font-black italic tracking-widest text-xs font-display">
+          SYS_ONLINE
+        </div>
+      </header>
 
-      <div className="relative z-10 flex-1 flex flex-col overflow-visible">
+      <main className="flex-grow pt-16 pb-20 px-4 flex flex-col gap-6 relative z-10">
         {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col justify-center py-6 space-y-4">
-            <AnimatedCatRobot />
-
+          <>
             <EnhancedTitle />
 
             <SimpleInputContainer>
-              <div className="space-y-6">
-                <ModernStockInput
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onStockSelect={handleStockSelect}
-                  autoSelectFirst={isUrlAutoSelectRef.current}
-                />
+              <ModernStockInput value={inputValue} onChange={setInputValue} onStockSelect={handleStockSelect} autoSelectFirst={isUrlAutoSelectRef.current} />
 
-                {loading && (
-                  <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
-                  </div>
-                )}
+              {loading && (
+                <div className="text-center py-3 animate-fadeIn">
+                  <div className="inline-block animate-spin h-8 w-8 border-2 border-mb-surface-highest border-t-mb-cyan"></div>
+                  <p className="mt-2 text-mb-outline font-mono text-[10px] uppercase">LOADING...</p>
+                </div>
+              )}
 
-                {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
-                  </div>
-                )}
+              {error && diagnosisState !== 'error' && (
+                <div className="bg-mb-surface-container border-l-4 border-mb-pink p-2 text-center animate-fadeIn mt-2">
+                  <p className="text-mb-pink text-xs font-mono">{error}</p>
+                </div>
+              )}
 
-                {!loading && diagnosisState === 'initial' && (
-                  <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                )}
+              {!loading && diagnosisState === 'initial' && (
+                <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+              )}
 
-                {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
-                    >
-                      もう一度試す
-                    </button>
-                  </div>
-                )}
-              </div>
+              {diagnosisState === 'error' && (
+                <div className="bg-mb-surface-highest border border-mb-outline-variant p-4 text-center animate-fadeIn mt-2 pixel-corner relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-mb-error z-20"></div>
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-mb-error z-20"></div>
+                  <h3 className="font-display text-2xl text-mb-error uppercase mb-2" style={{ fontWeight: 700, textShadow: '0 0 10px rgba(255,180,171,0.5)' }}>ERROR</h3>
+                  <p className="text-mb-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                  <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                    className="px-6 py-3 bg-mb-surface-lowest border-2 border-mb-cyan text-mb-cyan font-display font-bold uppercase text-sm pixel-corner hard-shadow-cyan hover:border-mb-pink hover:text-mb-pink transition-colors">
+                    もう一度試す
+                  </button>
+                </div>
+              )}
             </SimpleInputContainer>
-          </div>
+          </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <InlineLoadingScene isVisible={showLoadingScene} />
           </div>
         )}
-      </div>
+      </main>
+
+      <Footer />
 
       <DiagnosisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}

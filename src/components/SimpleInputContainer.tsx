@@ -1,13 +1,9 @@
 import { ReactNode } from 'react';
-
-interface SimpleInputContainerProps {
-  children: ReactNode;
-}
-
+interface SimpleInputContainerProps { children: ReactNode; }
 export default function SimpleInputContainer({ children }: SimpleInputContainerProps) {
   return (
-    <div className="max-w-md mx-auto px-6 py-8">
+    <section className="flex flex-col gap-4 mt-6 relative">
       {children}
-    </div>
+    </section>
   );
 }

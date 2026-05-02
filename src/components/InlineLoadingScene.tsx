@@ -1,38 +1,23 @@
-import AnimatedCatRobot from './AnimatedCatRobot';
 import LoadingProgressBars from './LoadingProgressBars';
-
-interface InlineLoadingSceneProps {
-  isVisible: boolean;
-}
+interface InlineLoadingSceneProps { isVisible: boolean; }
 
 export default function InlineLoadingScene({ isVisible }: InlineLoadingSceneProps) {
   if (!isVisible) return null;
-
   return (
-    <div className="w-full animate-fadeIn px-4">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">
-          AI分析中
-        </h2>
-        <p className="text-sm md:text-base text-gray-300">
-          数秒お待ちください...
-        </p>
-      </div>
-
-      <div className="flex items-center justify-center mb-8">
-        <AnimatedCatRobot />
-      </div>
-
-      <div className="max-w-md mx-auto">
-        <LoadingProgressBars isVisible={isVisible} />
-      </div>
-
-      <div className="mt-6 text-center">
-        <p className="text-xs text-gray-400 leading-relaxed">
-          すべてのデータは公開されている市場情報を使用しており、
-          <br className="hidden sm:inline" />
-          公開市場データに基づいて分析を行っています
-        </p>
+    <div className="w-full animate-fadeIn py-4">
+      <div className="relative p-4 bg-mb-surface-highest border border-mb-outline-variant pixel-corner overflow-hidden">
+        <div className="absolute inset-0 bg-mb-surface/80 backdrop-blur-md z-0"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center gap-4 py-10">
+          <div className="absolute top-2 left-2 text-mb-error font-mono text-[10px] animate-pulse">SYS_WARN_OVERRIDE</div>
+          <h2 className="font-display text-[48px] text-mb-error uppercase tracking-tighter" style={{ fontWeight: 700, textShadow: '0 0 10px rgba(255,180,171,0.5)' }}>
+            ANALYZING...
+          </h2>
+          <LoadingProgressBars isVisible={isVisible} />
+        </div>
+        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-mb-error z-20"></div>
+        <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-mb-error z-20"></div>
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-mb-error z-20"></div>
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-mb-error z-20"></div>
       </div>
     </div>
   );

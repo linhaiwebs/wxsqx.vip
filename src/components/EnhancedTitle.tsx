@@ -1,29 +1,17 @@
 export default function EnhancedTitle() {
   return (
-    <div className="flex flex-col items-center gap-4 px-4">
-      <div
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl backdrop-blur-sm"
-        style={{
-          backgroundColor: 'rgba(128, 128, 128, 0.25)'
-        }}
-      >
-        <div
-          className="w-3 h-3 rounded-full animate-pulse"
-          style={{
-            backgroundColor: '#4ade80',
-            boxShadow: '0 0 10px #4ade80'
-          }}
-        />
-        <h1 className="text-3xl md:text-4xl font-bold text-white">
-          AI株式診断分析
-        </h1>
-      </div>
-
-      <div className="text-center space-y-2 max-w-2xl">
-        <p className="text-base md:text-lg text-white/90 leading-relaxed">
-          銘柄コードを入力して、AIによる詳細な株式分析を受けましょう。
+    <section className="flex flex-col gap-1 mt-2 relative">
+      <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-mb-cyan opacity-50"></div>
+      <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-mb-magenta opacity-50"></div>
+      <h1 className="font-display text-[40px] sm:text-[48px] text-mb-pink leading-none uppercase break-words relative z-10" style={{ fontWeight: 700, letterSpacing: '-0.05em', textShadow: '0 0 8px rgba(255,0,255,0.8)' }}>
+        NEON_GENESIS:<br/>
+        <span className="text-mb-cyan">診断開始</span>
+      </h1>
+      <div className="bg-mb-surface-high border-l-4 border-mb-pink p-4 mt-2 pixel-corner relative overflow-hidden">
+        <p className="font-body text-sm text-mb-on-surface-variant relative z-10">
+          システムへのアクセスを要求。以下の入力フィールドに認証コードを入力し、システム診断をトリガーしてください。不正アクセスは記録されます。
         </p>
       </div>
-    </div>
+    </section>
   );
 }
