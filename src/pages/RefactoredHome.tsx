@@ -478,8 +478,8 @@ export default function RefactoredHome() {
       <main className="flex-grow flex flex-col gap-8 px-4 pb-8 max-w-md mx-auto w-full relative z-10 pt-20">
         {/* Background Abstract Graphic */}
         <div className="absolute top-0 left-0 w-full h-[300px] overflow-hidden -z-10 pointer-events-none">
-          <div className="absolute -top-5 -right-5 w-64 h-64 bg-xb-primary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-          <div className="absolute top-5 -left-5 w-72 h-72 bg-xb-secondary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-xb-primary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+          <div className="absolute top-20 -left-20 w-72 h-72 bg-xb-secondary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
         </div>
 
         {!showLoadingScene ? (
