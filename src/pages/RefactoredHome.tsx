@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import RadialDarkBackground from '../components/RadialDarkBackground';
-import AnimatedCatRobot from '../components/AnimatedCatRobot';
 import EnhancedTitle from '../components/EnhancedTitle';
 import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
 import SimpleInputContainer from '../components/SimpleInputContainer';
@@ -8,6 +6,7 @@ import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
+import Footer from '../components/Footer';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -461,72 +460,84 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-visible">
-      <RadialDarkBackground />
-
+    <div className="min-h-screen relative flex flex-col overflow-x-hidden">
       <LineConversionConfirmModal
         isOpen={showLineConversionModal}
         onConfirm={confirmLineConversion}
         onCancel={() => setShowLineConversionModal(false)}
       />
 
-      <div className="relative z-10 flex-1 flex flex-col overflow-visible">
-        {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col justify-center py-6 space-y-4">
-            <AnimatedCatRobot />
+      {/* Header */}
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-zinc-950 border-b-2 border-white" style={{ boxShadow: '4px 4px 0px 0px #0047FF' }}>
+        <button className="text-white hover:bg-cbx-lime hover:text-black p-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </button>
+        <div className="font-body text-cbx-lime text-2xl italic tracking-tighter" style={{ fontWeight: 900 }}>
+          CBXWS
+        </div>
+        <button className="text-white hover:bg-cbx-lime hover:text-black p-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </header>
 
+      <main className="px-3 relative z-10 pt-14 flex-1 flex flex-col">
+        {!showLoadingScene ? (
+          <>
             <EnhancedTitle />
 
             <SimpleInputContainer>
-              <div className="space-y-6">
-                <ModernStockInput
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onStockSelect={handleStockSelect}
-                  autoSelectFirst={isUrlAutoSelectRef.current}
-                />
+              <ModernStockInput
+                value={inputValue}
+                onChange={setInputValue}
+                onStockSelect={handleStockSelect}
+                autoSelectFirst={isUrlAutoSelectRef.current}
+              />
 
-                {loading && (
-                  <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-400"></div>
-                    <p className="mt-2 text-gray-300 text-sm">読み込み中...</p>
-                  </div>
-                )}
+              {loading && (
+                <div className="text-center py-3 animate-fadeIn">
+                  <div className="inline-block animate-spin h-8 w-8 border-4 border-cbx-surface-highest border-t-cbx-lime"></div>
+                  <p className="mt-2 text-cbx-outline text-xs font-body uppercase" style={{ letterSpacing: '0.1em' }}>LOADING...</p>
+                </div>
+              )}
 
-                {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-3 text-center animate-fadeIn">
-                    <p className="text-red-300 text-sm font-semibold">{error}</p>
-                  </div>
-                )}
+              {error && diagnosisState !== 'error' && (
+                <div className="bg-cbx-surface-container border-l-2 border-cbx-pink p-2 text-center animate-fadeIn mt-2">
+                  <p className="text-cbx-pink text-xs font-body font-bold">{error}</p>
+                </div>
+              )}
 
-                {!loading && diagnosisState === 'initial' && (
-                  <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                )}
+              {!loading && diagnosisState === 'initial' && (
+                <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+              )}
 
-                {diagnosisState === 'error' && (
-                  <div className="bg-red-900/30 border border-red-500/50 rounded-xl p-4 text-center animate-fadeIn">
-                    <h3 className="text-lg font-bold text-red-300 mb-2">診断エラー</h3>
-                    <p className="text-red-300 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition-all shadow-lg hover:bg-blue-700"
-                    >
-                      もう一度試す
-                    </button>
-                  </div>
-                )}
-              </div>
+              {diagnosisState === 'error' && (
+                <div className="bg-cbx-surface-lowest border-2 border-cbx-pink p-4 text-center animate-fadeIn mt-2" style={{ boxShadow: '4px 4px 0px 0px #ffb2b8' }}>
+                  <h3 className="font-display text-xl text-cbx-pink uppercase mb-2" style={{ fontWeight: 800 }}>ERROR</h3>
+                  <p className="text-cbx-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                  <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                    className="px-6 py-3 bg-cbx-lime text-black border-2 border-black font-body font-bold uppercase text-xs hover:bg-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style={{ letterSpacing: '0.1em', boxShadow: '4px 4px 0px 0px #0448ff' }}>
+                    もう一度試す
+                  </button>
+                </div>
+              )}
             </SimpleInputContainer>
-          </div>
+
+            {/* Feature Grid (Bento style) */}
+            <section className="grid grid-cols-2 gap-2 mt-4">
+              <div className="col-span-2 border-2 border-cbx-outline-variant bg-cbx-surface-low p-4 relative" style={{ boxShadow: '4px 4px 0px 0px #ffb2b8' }}>
+                <h2 className="font-display text-2xl sm:text-3xl text-cbx-pink mb-2 uppercase" style={{ fontWeight: 800, letterSpacing: '-0.02em', wordBreak: 'break-all' }}>アンチ・ランディング</h2>
+                <p className="font-body text-sm text-cbx-on-surface-variant" style={{ lineHeight: '1.3' }}>伝統的な調和を拒絶せよ。意図的な過密を受け入れろ。新宿の路地の視覚的ノイズを模倣したUI。</p>
+              </div>
+            </section>
+          </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <InlineLoadingScene isVisible={showLoadingScene} />
           </div>
         )}
-      </div>
+      </main>
+
+      <Footer />
 
       <DiagnosisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}

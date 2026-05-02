@@ -1,29 +1,19 @@
 export default function EnhancedTitle() {
   return (
-    <div className="flex flex-col items-center gap-4 px-4">
-      <div
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl backdrop-blur-sm"
-        style={{
-          backgroundColor: 'rgba(128, 128, 128, 0.25)'
-        }}
-      >
-        <div
-          className="w-3 h-3 rounded-full animate-pulse"
-          style={{
-            backgroundColor: '#4ade80',
-            boxShadow: '0 0 10px #4ade80'
-          }}
-        />
-        <h1 className="text-3xl md:text-4xl font-bold text-white">
-          AI株式診断分析
+    <section className="relative flex flex-col justify-center border-2 border-cbx-white p-4 bg-cbx-surface-lowest overflow-hidden min-h-[320px] mb-4">
+      <div className="noise-bg"></div>
+      <div className="absolute -right-8 -top-8 font-display text-[100px] sm:text-[120px] text-cbx-surface-highest select-none opacity-50 whitespace-nowrap rotate-90 z-0 leading-none" style={{ fontWeight: 900 }}>
+        株式解析
+      </div>
+      <div className="relative z-10">
+        <h1 className="font-display text-[36px] sm:text-[48px] text-cbx-white leading-none" style={{ letterSpacing: '-0.05em', fontWeight: 900 }}>
+          AI株価<br/>
+          <span className="text-cbx-lime bg-cbx-blue px-2">強制分析</span>
         </h1>
+        <div className="font-body text-sm text-cbx-outline max-w-xs border-l-2 border-cbx-lime pl-2 mb-4 mt-3" style={{ lineHeight: '1.3' }}>
+          [システム通信] 銘柄コードを入力。AI分析プロトコル始動。シグナルを抽出中...
+        </div>
       </div>
-
-      <div className="text-center space-y-2 max-w-2xl">
-        <p className="text-base md:text-lg text-white/90 leading-relaxed">
-          銘柄コードを入力して、AIによる詳細な株式分析を受けましょう。
-        </p>
-      </div>
-    </div>
+    </section>
   );
 }
