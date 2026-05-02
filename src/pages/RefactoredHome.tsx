@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import EnhancedTitle from '../components/EnhancedTitle';
 import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
-import SimpleInputContainer from '../components/SimpleInputContainer';
 import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
+import PopularStocksGrid from '../components/PopularStocksGrid';
+import DiagnosisResultSample from '../components/DiagnosisResultSample';
 import Footer from '../components/Footer';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
@@ -463,6 +464,7 @@ export default function RefactoredHome() {
     <div className="min-h-screen relative flex flex-col overflow-x-hidden">
       <LineConversionConfirmModal isOpen={showLineConversionModal} onConfirm={confirmLineConversion} onCancel={() => setShowLineConversionModal(false)} />
 
+      {/* TopAppBar — from Stitch design */}
       <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/50" style={{ boxShadow: '0 20px 40px rgba(0,65,255,0.08)' }}>
         <div className="flex items-center justify-between px-4 h-14 w-full">
           <div className="flex items-center gap-2 text-blue-600">
@@ -472,48 +474,60 @@ export default function RefactoredHome() {
         </div>
       </header>
 
+      {/* Main — from Stitch design */}
       <main className="flex-grow flex flex-col gap-8 px-4 pb-8 max-w-md mx-auto w-full relative z-10 pt-20">
-        {/* Background Abstract Graphic — from Stitch design */}
+        {/* Background Abstract Graphic */}
         <div className="absolute top-0 left-0 w-full h-[300px] overflow-hidden -z-10 pointer-events-none">
           <div className="absolute -top-5 -right-5 w-64 h-64 bg-xb-primary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-          <div className="absolute top-20 -left-5 w-72 h-72 bg-xb-secondary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+          <div className="absolute top-5 -left-5 w-72 h-72 bg-xb-secondary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
         </div>
 
         {!showLoadingScene ? (
           <>
-            <EnhancedTitle />
+            {/* Hero Section — glass-panel with title, input, CTA inside */}
+            <section className="mt-5">
+              <div className="glass-panel rounded-xl p-5 flex flex-col gap-3">
+                <EnhancedTitle />
+                <div className="flex flex-col gap-2 mt-2">
+                  <ModernStockInput value={inputValue} onChange={setInputValue} onStockSelect={handleStockSelect} autoSelectFirst={isUrlAutoSelectRef.current} />
 
-            <SimpleInputContainer>
-              <ModernStockInput value={inputValue} onChange={setInputValue} onStockSelect={handleStockSelect} autoSelectFirst={isUrlAutoSelectRef.current} />
+                  {loading && (
+                    <div className="text-center py-2 animate-fadeIn">
+                      <div className="inline-block animate-spin h-7 w-7 border-2 border-xb-surface-highest border-t-xb-primary rounded-full"></div>
+                      <p className="mt-1 text-xb-outline font-body text-[11px]">読み込み中...</p>
+                    </div>
+                  )}
 
-              {loading && (
-                <div className="text-center py-3 animate-fadeIn">
-                  <div className="inline-block animate-spin h-8 w-8 border-2 border-xb-surface-highest border-t-xb-primary rounded-full"></div>
-                  <p className="mt-2 text-xb-outline font-body text-[11px]">読み込み中...</p>
+                  {error && diagnosisState !== 'error' && (
+                    <div className="bg-xb-error-container border-l-4 border-xb-error p-2 text-center animate-fadeIn">
+                      <p className="text-xb-error text-xs font-body" style={{ fontWeight: 600 }}>{error}</p>
+                    </div>
+                  )}
+
+                  {!loading && diagnosisState === 'initial' && (
+                    <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+                  )}
                 </div>
-              )}
+              </div>
+            </section>
 
-              {error && diagnosisState !== 'error' && (
-                <div className="bg-xb-error-container border-l-4 border-xb-error p-2 text-center animate-fadeIn">
-                  <p className="text-xb-error text-xs font-body" style={{ fontWeight: 600 }}>{error}</p>
-                </div>
-              )}
+            {/* Popular Stocks Grid — from Stitch design */}
+            <PopularStocksGrid onStockClick={(code) => { setInputValue(code); setStockCode(code); }} />
 
-              {!loading && diagnosisState === 'initial' && (
-                <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-              )}
+            {/* Diagnosis Result Sample — from Stitch design (visible on landing page) */}
+            <DiagnosisResultSample />
 
-              {diagnosisState === 'error' && (
-                <div className="glass-panel rounded-xl p-5 text-center animate-fadeIn">
-                  <h3 className="font-display text-2xl text-xb-error mb-2" style={{ fontWeight: 700 }}>エラー</h3>
-                  <p className="text-xb-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
-                  <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
-                    className="bg-xb-primary text-white font-body font-semibold rounded-lg px-6 py-3 text-sm hover:bg-xb-primary-container transition-colors">
-                    もう一度試す
-                  </button>
-                </div>
-              )}
-            </SimpleInputContainer>
+            {/* Error State */}
+            {diagnosisState === 'error' && (
+              <div className="glass-panel rounded-xl p-5 text-center animate-fadeIn">
+                <h3 className="font-display text-2xl text-xb-error mb-2" style={{ fontWeight: 700 }}>エラー</h3>
+                <p className="text-xb-on-surface-variant text-sm mb-4 whitespace-pre-line font-body">{error}</p>
+                <button onClick={() => { setDiagnosisState('initial'); setError(null); }}
+                  className="bg-xb-primary text-white font-body font-semibold rounded-lg px-6 py-3 text-sm hover:bg-xb-primary-container transition-colors">
+                  もう一度試す
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
