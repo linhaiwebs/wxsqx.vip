@@ -141,8 +141,8 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
   };
 
   return (
-    <div className="relative w-full animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-      <div className="relative">
+    <div className="relative w-full animate-fadeIn">
+      <div className="flex items-stretch gap-0 w-full max-w-sm">
         <input
           ref={inputRef}
           type="text"
@@ -150,8 +150,8 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
           placeholder="例: 7203 / トヨタ / ソニー"
-          className="w-full px-4 py-3 text-base text-gray-900 bg-[#F4F4F4] rounded-xl border-0 focus:ring-2 focus:ring-gray-300 focus:outline-none placeholder-gray-400 transition-all duration-200"
-          style={{ height: '52px' }}
+          className="bg-kw-surface border-2 border-kw-white text-kw-on-bg font-body text-lg px-3 py-2 w-full focus:outline-none focus:border-kw-accent focus:ring-0 placeholder:text-kw-outline-variant uppercase h-12"
+          style={{ fontFamily: 'monospace' }}
           disabled={isLoading}
         />
       </div>
@@ -159,13 +159,13 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
       {showDropdown && currentResults.length > 0 && createPortal(
         <div
           ref={dropdownRef}
-          className="fixed z-[9999] bg-white rounded-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          className="fixed z-[9999] bg-kw-bg border-2 border-kw-white overflow-hidden animate-fadeIn"
           style={{
             left: `${dropdownPosition.left}px`,
             top: `${dropdownPosition.top}px`,
             width: `${dropdownPosition.width}px`,
             maxHeight: '400px',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
+            boxShadow: '4px 4px 0 0 #d2f000',
             pointerEvents: 'auto'
           }}
         >
@@ -174,16 +174,16 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
               <button
                 key={`${stock.code}-${index}`}
                 onClick={() => handleStockClick(stock)}
-                className="w-full px-5 py-2.5 text-left hover:bg-gray-50 transition-all duration-150 border-b border-gray-100 last:border-b-0"
+                className="w-full px-4 py-2.5 text-left hover:bg-kw-surface-high transition-colors border-b border-kw-outline-variant last:border-b-0"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <div className="font-semibold text-gray-900 whitespace-nowrap">{stock.code}</div>
-                    <div className="text-sm text-gray-600 truncate" title={stock.name}>
+                    <div className="font-display text-kw-accent font-bold whitespace-nowrap text-sm">{stock.code}</div>
+                    <div className="text-sm text-kw-on-surface-variant truncate font-body" title={stock.name}>
                       {stock.name.length > 6 ? `${stock.name.slice(0, 6)}...` : stock.name}
                     </div>
                   </div>
-                  <div className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full font-medium whitespace-nowrap">
+                  <div className="text-xs text-kw-on-surface-variant bg-kw-surface-highest px-2 py-1 font-body font-medium whitespace-nowrap">
                     {stock.market}
                   </div>
                 </div>
@@ -192,28 +192,10 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
           </div>
 
           {totalPages > 1 && (
-            <div className="flex items-center justify-between px-5 py-3 bg-gray-50 border-t border-gray-200">
-              <button
-                onClick={handlePrevPage}
-                disabled={currentPage === 0}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                前へ
-              </button>
-
-              <div className="text-sm font-semibold text-gray-700">
-                {currentPage + 1} / {totalPages}
-              </div>
-
-              <button
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages - 1}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-              >
-                次へ
-                <ChevronRight className="w-4 h-4" />
-              </button>
+            <div className="flex items-center justify-between px-4 py-2 bg-kw-surface-highest border-t border-kw-outline-variant">
+              <button onClick={handlePrevPage} disabled={currentPage === 0} className="flex items-center gap-1 px-3 py-1 text-sm font-body text-kw-on-surface-variant bg-kw-surface-container border border-kw-outline-variant hover:bg-kw-surface-high disabled:opacity-50 disabled:cursor-not-allowed transition-colors"><ChevronLeft className="w-3 h-3" />前へ</button>
+              <div className="text-sm font-display text-kw-on-bg">{currentPage + 1} / {totalPages}</div>
+              <button onClick={handleNextPage} disabled={currentPage === totalPages - 1} className="flex items-center gap-1 px-3 py-1 text-sm font-body text-kw-on-surface-variant bg-kw-surface-container border border-kw-outline-variant hover:bg-kw-surface-high disabled:opacity-50 disabled:cursor-not-allowed transition-colors">次へ<ChevronRight className="w-3 h-3" /></button>
             </div>
           )}
         </div>,
@@ -221,7 +203,7 @@ export default function ModernStockInput({ value, onChange, onStockSelect, disab
       )}
 
       {isLoading && (
-        <div className="absolute left-0 right-0 top-full mt-2 text-center text-sm text-gray-300">
+        <div className="absolute left-0 right-0 top-full mt-2 text-center text-xs text-kw-outline font-body">
           読み込み中...
         </div>
       )}
