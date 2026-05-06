@@ -1,4 +1,3 @@
-import { X, Loader2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import AnalysisRenderer from './AnalysisRenderer';
 
@@ -18,38 +17,42 @@ export default function DiagnosisModal({ isOpen, onClose, analysis, stockCode, s
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-3" style={{ touchAction: 'none' }}>
-      <div className="neumorphic-card rounded-xl p-4 w-full max-w-[400px] flex flex-col gap-4 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-xy-primary-container opacity-10 rounded-bl-full -mr-8 -mt-8"></div>
-        <div className="flex justify-between items-start z-10">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-3" style={{ touchAction: 'none' }}>
+      <div className="bg-surface-container-low border border-outline-variant rounded w-full max-w-[400px] flex flex-col gap-4 relative overflow-hidden neon-glow">
+        <div className="flex justify-between items-start p-4 pb-0">
           <div>
-            <span className="font-body text-[11px] text-xy-outline uppercase tracking-wider" style={{ fontWeight: 600 }}>診断結果</span>
-            <h3 className="font-display text-[20px] text-xy-on-bg mt-1" style={{ fontWeight: 600 }}>{stockName}（{stockCode}）</h3>
+            <span className="font-data-mono text-label-xs text-outline">DIAG_RESULT</span>
+            <h3 className="font-headline-md text-headline-md text-on-surface mt-1">{stockName}（{stockCode}）</h3>
           </div>
-          <button onClick={onClose} className="text-xy-outline hover:text-xy-on-bg transition-colors"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="text-on-surface-variant hover:text-on-surface transition-colors">
+            <span className="material-symbols-outlined">close</span>
+          </button>
         </div>
-        <div ref={contentRef} className="flex flex-col gap-2 overflow-y-auto max-h-[50vh] text-left z-10">
+        <div ref={contentRef} className="flex flex-col gap-4 overflow-y-auto max-h-[50vh] text-left px-4 pb-4">
           {isConnecting ? (
             <div className="text-center py-6">
-              <Loader2 className="w-10 h-10 animate-spin mx-auto mb-3 text-xy-primary" />
-              <p className="font-display text-xy-primary" style={{ fontWeight: 600 }}>診断中...</p>
+              <div className="inline-block animate-spin h-10 w-10 border-2 border-surface-container-highest border-t-primary-fixed-dim rounded-full mb-3" />
+              <p className="font-data-mono text-primary-fixed-dim">診断中...</p>
             </div>
           ) : (
             <>
-              <div className="bg-xy-error-container border border-xy-outline-variant p-3 rounded-lg">
-                <p className="font-body text-sm text-xy-error" style={{ fontWeight: 600 }}>⚠️ 投資助言ではありません</p>
-                <p className="font-body text-xs text-xy-on-surface-variant mt-1">本サービスは情報提供のみを目的としています。</p>
+              <div className="bg-error-container/20 border border-error/30 p-3 rounded">
+                <p className="font-data-mono text-data-mono text-error font-bold">⚠️ 投資助言ではありません</p>
+                <p className="font-body-base text-body-base text-on-surface-variant mt-1">本サービスは情報提供のみを目的としています。</p>
               </div>
-              <div className="bg-xy-bg p-3 rounded-lg">
+              <div className="bg-surface-container p-3 rounded">
                 <AnalysisRenderer text={analysis} />
-                {isStreaming && <span className="inline-block w-2 h-4 animate-pulse ml-1 bg-xy-primary"></span>}
+                {isStreaming && <span className="inline-block w-2 h-4 animate-pulse ml-1 bg-primary-fixed-dim" />}
               </div>
-              <button onClick={onLineConversion} className="neumorphic-button w-full h-12 rounded-full flex items-center justify-center gap-2 bg-xy-primary text-white transition-all font-body text-[11px] tracking-widest" style={{ fontWeight: 600, letterSpacing: '0.05em', boxShadow: '6px 6px 12px #e2e2e9, -6px -6px 12px #ffffff' }}>
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+              <button onClick={onLineConversion}
+                className="w-full bg-primary-fixed-dim text-on-primary-fixed font-data-mono text-body-base font-bold py-3 rounded hover:bg-primary-container transition-all neon-glow-hover flex items-center justify-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">download</span>
                 詳細レポートをダウンロード
               </button>
-              <div className="bg-xy-surface-container p-2 rounded-lg">
-                <p className="font-body text-[11px] text-xy-on-surface-variant text-center"><span className="text-xy-secondary">✓</span> 現在無料 <span className="mx-1">|</span> <span className="text-xy-secondary">✓</span> LINE友だち追加で定期配信</p>
+              <div className="bg-surface-container/50 p-2 rounded">
+                <p className="font-data-mono text-label-xs text-on-surface-variant text-center">
+                  <span className="text-primary-fixed-dim">✓</span> 現在無料 <span className="mx-1">|</span> <span className="text-primary-fixed-dim">✓</span> LINE友だち追加で定期配信
+                </p>
               </div>
             </>
           )}

@@ -12,9 +12,9 @@ export default function LoadingProgressBars({ isVisible }: LoadingProgressBarsPr
   }, [isVisible]);
 
   const stages = [
-    { label: 'データ取得', progress: s1, color: '#064192' },
-    { label: 'AI分析', progress: s2, color: '#006d37' },
-    { label: 'レポート生成', progress: s3, color: '#904a00' },
+    { label: 'データ取得', progress: s1, color: '#00e639' },
+    { label: 'AI分析', progress: s2, color: '#00ff41' },
+    { label: 'レポート生成', progress: s3, color: '#72ff70' },
   ];
 
   return (
@@ -22,11 +22,11 @@ export default function LoadingProgressBars({ isVisible }: LoadingProgressBarsPr
       {stages.map((stage, i) => (
         <div key={i}>
           <div className="flex justify-between items-center mb-1">
-            <span className="font-body text-[11px] text-xy-on-surface-variant" style={{ fontWeight: 600 }}>{stage.label}</span>
-            <span className="font-body text-[13px] text-xy-on-bg" style={{ fontWeight: 500 }}>{Math.floor(stage.progress)}%</span>
+            <span className="font-data-mono text-label-xs text-on-surface-variant">{stage.label}</span>
+            <span className="font-data-mono text-data-mono text-primary-fixed-dim font-bold">{Math.floor(stage.progress)}%</span>
           </div>
-          <div className="w-full h-2 bg-xy-surface-container rounded-full overflow-hidden">
-            <div className="h-full rounded-full transition-all duration-300" style={{ width: `${stage.progress}%`, backgroundColor: stage.color }} />
+          <div className="w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+            <div className="h-full rounded transition-all duration-300" style={{ width: `${stage.progress}%`, backgroundColor: stage.color }} />
           </div>
         </div>
       ))}

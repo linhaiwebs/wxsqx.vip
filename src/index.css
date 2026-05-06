@@ -3,51 +3,46 @@
 @tailwind utilities;
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Public+Sans:wght@600;700;900&family=Noto+Sans+JP:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
   html { overflow-y: scroll; overflow-x: hidden; scrollbar-gutter: stable; }
 
   body {
-    @apply text-xy-on-bg min-h-screen;
+    @apply text-on-background min-h-screen;
     overflow-x: hidden;
-    font-family: 'Inter', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #faf9ff;
+    background-color: #0c160a;
     width: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  ::selection { background: #2d5aab; color: #ffffff; }
+  ::selection { background: #00e639; color: #0c160a; }
   * { scrollbar-width: none; -ms-overflow-style: none; }
   *::-webkit-scrollbar { display: none; }
 
   body[data-modal-open] header, body[data-modal-open] > div > header { display: none !important; }
   body[data-modal-open] footer, body[data-modal-open] > div > footer { display: none !important; }
+
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0; }
+  .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
 }
 
 @layer utilities {
-  .neumorphic-card {
-    background: #faf9ff;
-    box-shadow: 6px 6px 12px #e2e2e9, -6px -6px 12px #ffffff;
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(30, 30, 30, 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 30, 30, 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
-  .neumorphic-button {
-    background: #faf9ff;
-    box-shadow: 6px 6px 12px #e2e2e9, -6px -6px 12px #ffffff;
-    transition: all 0.2s ease-in-out;
+  .neon-glow {
+    box-shadow: 0 0 8px rgba(0, 230, 57, 0.3);
   }
-  .neumorphic-button:active {
-    box-shadow: inset 4px 4px 8px #e2e2e9, inset -4px -4px 8px #ffffff;
-  }
-  .neumorphic-input {
-    background: #f3f3fa;
-    box-shadow: inset 6px 6px 12px #e2e2e9, inset -6px -6px 12px #ffffff;
-    border: none;
-  }
-  .neumorphic-input:focus {
-    outline: none;
-    box-shadow: inset 6px 6px 12px #e2e2e9, inset -6px -6px 12px #ffffff, inset 0 0 0 1px rgba(45, 90, 171, 0.2);
+  .neon-glow-hover:hover {
+    box-shadow: 0 0 12px rgba(0, 230, 57, 0.5);
   }
   .animate-fadeIn { animation: fadeIn 0.2s ease-in; }
   @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }

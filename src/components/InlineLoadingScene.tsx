@@ -5,12 +5,12 @@ export default function InlineLoadingScene({ isVisible }: InlineLoadingSceneProp
   if (!isVisible) return null;
   return (
     <div className="w-full animate-fadeIn py-4">
-      <div className="neumorphic-card rounded-xl p-4 flex flex-col gap-4 items-center text-center">
-        <div className="neumorphic-input rounded-full w-12 h-12 flex items-center justify-center">
-          <svg className="w-6 h-6 text-xy-primary animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
+      <div className="bg-surface-container-low border border-outline-variant rounded p-4 flex flex-col gap-4 items-center text-center neon-glow">
+        <div className="animate-spin h-12 w-12 border-2 border-surface-container-highest border-t-primary-fixed-dim rounded-full" />
+        <h3 className="font-headline-md text-headline-md text-primary-fixed-dim">診断中...</h3>
+        <div className="w-full">
+          <LoadingProgressBars isVisible={isVisible} />
         </div>
-        <h3 className="font-display text-[20px] text-xy-on-bg" style={{ fontWeight: 600 }}>診断中...</h3>
-        <LoadingProgressBars isVisible={isVisible} />
       </div>
     </div>
   );

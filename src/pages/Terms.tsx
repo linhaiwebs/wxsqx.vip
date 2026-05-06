@@ -3,45 +3,45 @@ import { ArrowLeft, FileText } from 'lucide-react';
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-xy-bg">
+    <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <a href="https://xydxd.vip/"
-          className="inline-flex items-center gap-2 text-xy-primary hover:text-xy-primary mb-6"
+        <a href="https://snxwx.vip/"
+          className="inline-flex items-center gap-2 text-on-primary hover:text-on-primary mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
         </a>
 
-        <div className="bg-xy-bg   p-8">
+        <div className="bg-background   p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-blue-100 p-3 ">
-              <FileText className="w-6 h-6 text-xy-primary" />
+              <FileText className="w-6 h-6 text-on-primary" />
             </div>
-            <h1 className="text-3xl font-bold text-xy-on-bg">利用規約</h1>
+            <h1 className="text-3xl font-bold text-on-background">利用規約</h1>
           </div>
 
           <div className="prose max-w-none">
-            <p className="text-sm text-xy-on-surface-variant mb-6">最終更新日: 2025年10月21日</p>
+            <p className="text-sm text-on-surface-variant mb-6">最終更新日: 2025年10月21日</p>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第1条（適用）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第1条（適用）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 本規約は、AI株式診断サービス（以下「当サービス」といいます）の利用に関する条件を、当サービスを利用する全ての方（以下「利用者」といいます）と株式会社アドバンティ（以下「当社」といいます）との間で定めるものです。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <p className="text-on-surface-variant leading-relaxed">
                 利用者は、当サービスを利用することにより、本規約の全ての内容に同意したものとみなされます。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第2条（サービスの内容）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第2条（サービスの内容）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当サービスは、AI技術を活用して株式市場の情報を分析し、利用者に提供する情報提供サービスです。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当サービスは以下の機能を提供します：
               </p>
-              <ul className="list-disc list-inside text-xy-on-surface-variant space-y-2 ml-4">
+              <ul className="list-disc list-inside text-on-surface-variant space-y-2 ml-4">
                 <li>株式銘柄の基本情報の表示</li>
                 <li>株価推移のグラフ表示</li>
                 <li>AIによる株式分析レポートの生成</li>
@@ -50,37 +50,37 @@ export default function Terms() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第3条（利用上の注意事項）</h2>
+              <h2 className="text-xl font-bold text-on-background mb-4">第3条（利用上の注意事項）</h2>
               <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
-                <p className="text-xy-on-bg font-semibold mb-2">重要な注意事項</p>
-                <p className="text-xy-on-surface-variant leading-relaxed">
+                <p className="text-on-background font-semibold mb-2">重要な注意事項</p>
+                <p className="text-on-surface-variant leading-relaxed">
                   当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。
                   当サービスが提供する情報は、投資判断の参考情報として提供されるものであり、投資成果を保証するものではありません。
                 </p>
               </div>
               <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
-                <p className="text-xy-on-bg font-semibold mb-2">AI分析の限界について</p>
-                <p className="text-xy-on-surface-variant leading-relaxed mb-2">
+                <p className="text-on-background font-semibold mb-2">AI分析の限界について</p>
+                <p className="text-on-surface-variant leading-relaxed mb-2">
                   当サービスで使用されるAI技術は、過去のデータやパターンに基づいて分析を行いますが、以下の限界があります：
                 </p>
-                <ul className="list-disc list-inside text-xy-on-surface-variant space-y-1 ml-4 text-sm">
+                <ul className="list-disc list-inside text-on-surface-variant space-y-1 ml-4 text-sm">
                   <li>予期せぬ市場変動や経済事象を予測できない場合があります</li>
                   <li>AIモデルは完全ではなく、誤った分析結果を生成する可能性があります</li>
                   <li>過去のデータに基づく分析は将来の結果を保証するものではありません</li>
                   <li>市場の急激な変化に対してリアルタイムで対応できない場合があります</li>
                 </ul>
               </div>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <p className="text-on-surface-variant leading-relaxed">
                 利用者は、自己の責任において投資判断を行うものとし、当サービスの利用により生じた損害について、当社は一切の責任を負いません。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第4条（禁止事項）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第4条（禁止事項）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 利用者は、当サービスの利用にあたり、以下の行為を行ってはなりません：
               </p>
-              <ul className="list-disc list-inside text-xy-on-surface-variant space-y-2 ml-4">
+              <ul className="list-disc list-inside text-on-surface-variant space-y-2 ml-4">
                 <li>法令または公序良俗に違反する行為</li>
                 <li>犯罪行為に関連する行為</li>
                 <li>当サービスの運営を妨害する行為</li>
@@ -93,29 +93,29 @@ export default function Terms() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第5条（知的財産権）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第5条（知的財産権）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当サービスに含まれるコンテンツ、テキスト、画像、プログラム等の著作権その他の知的財産権は、当社または当社にライセンスを許諾している者に帰属します。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <p className="text-on-surface-variant leading-relaxed">
                 利用者は、当社の事前の書面による承諾なく、これらを複製、転載、配布、改変等することはできません。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第6条（免責事項）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第6条（免責事項）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当社は、当サービスの内容、品質、正確性、完全性、有用性について、いかなる保証も行いません。
                 特にAI分析結果については、実験的な技術を含むため、その正確性や信頼性を保証することはできません。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当サービスの利用により利用者に生じた損害について、当社は一切の責任を負いません。ただし、当社の故意または重過失による場合はこの限りではありません。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 当サービスの提供の遅延、中断、停止、データの消失等について、当社は一切の責任を負いません。
               </p>
               <div className="bg-slate-100 border border-slate-300  p-4">
-                <p className="text-sm text-xy-on-surface-variant leading-relaxed">
+                <p className="text-sm text-on-surface-variant leading-relaxed">
                   <strong>投資リスクについて：</strong>
                   株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、投資元本を大きく割り込む可能性があります。
                   利用者は、これらのリスクを十分に理解した上で、自己の判断と責任において投資を行ってください。
@@ -124,40 +124,40 @@ export default function Terms() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第7条（サービスの変更・停止）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <h2 className="text-xl font-bold text-on-background mb-4">第7条（サービスの変更・停止）</h2>
+              <p className="text-on-surface-variant leading-relaxed">
                 当社は、利用者への事前の通知なく、当サービスの内容を変更し、または当サービスの提供を停止することができるものとします。
                 これにより利用者に生じた損害について、当社は一切の責任を負いません。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第8条（個人情報の取扱い）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <h2 className="text-xl font-bold text-on-background mb-4">第8条（個人情報の取扱い）</h2>
+              <p className="text-on-surface-variant leading-relaxed">
                 当社は、利用者の個人情報を、当社が別途定めるプライバシーポリシーに従って適切に取り扱います。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第9条（規約の変更）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <h2 className="text-xl font-bold text-on-background mb-4">第9条（規約の変更）</h2>
+              <p className="text-on-surface-variant leading-relaxed">
                 当社は、必要に応じて本規約を変更することができます。変更後の規約は、当サービス上に掲載された時点から効力を生じるものとします。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">第10条（準拠法および管轄裁判所）</h2>
-              <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+              <h2 className="text-xl font-bold text-on-background mb-4">第10条（準拠法および管轄裁判所）</h2>
+              <p className="text-on-surface-variant leading-relaxed mb-3">
                 本規約の解釈にあたっては、日本法を準拠法とします。
               </p>
-              <p className="text-xy-on-surface-variant leading-relaxed">
+              <p className="text-on-surface-variant leading-relaxed">
                 当サービスに関して紛争が生じた場合には、東京地方裁判所を専属的合意管轄裁判所とします。
               </p>
             </section>
 
             <div className="bg-slate-100  p-6 mt-8">
-              <h3 className="font-bold text-xy-on-bg mb-3">お問い合わせ</h3>
-              <p className="text-sm text-xy-on-surface-variant">
+              <h3 className="font-bold text-on-background mb-3">お問い合わせ</h3>
+              <p className="text-sm text-on-surface-variant">
                 本規約に関するご質問やご不明な点がございましたら、お問い合わせフォームよりご連絡ください。
               </p>
             </div>

@@ -3,58 +3,58 @@ import { ArrowLeft, FileText, Building, Mail } from 'lucide-react';
 
 export default function SpecifiedCommercialTransactionAct() {
   return (
-    <div className="min-h-screen bg-xy-bg">
+    <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <a href="https://xydxd.vip/"
-          className="inline-flex items-center gap-2 text-xy-primary hover:text-xy-primary mb-6"
+        <a href="https://snxwx.vip/"
+          className="inline-flex items-center gap-2 text-on-primary hover:text-on-primary mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
         </a>
 
-        <div className="bg-xy-bg   p-8">
+        <div className="bg-background   p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-blue-100 p-3 ">
-              <FileText className="w-6 h-6 text-xy-primary" />
+              <FileText className="w-6 h-6 text-on-primary" />
             </div>
-            <h1 className="text-3xl font-bold text-xy-on-bg">特定商取引法に基づく表記</h1>
+            <h1 className="text-3xl font-bold text-on-background">特定商取引法に基づく表記</h1>
           </div>
 
-          <p className="text-xy-on-surface-variant leading-relaxed mb-8">
+          <p className="text-on-surface-variant leading-relaxed mb-8">
             特定商取引法（特定商取引に関する法律）に基づき、以下の通り表記いたします。
           </p>
 
           <div className="space-y-6">
-            <section className="border-b border-xy-outline-variant pb-6">
+            <section className="border-b border-outline-variant pb-6">
               <div className="flex items-start gap-4">
-                <div className="bg-xy-surface-container p-3  flex-shrink-0">
-                  <Building className="w-5 h-5 text-xy-primary" />
+                <div className="bg-surface-container p-3  flex-shrink-0">
+                  <Building className="w-5 h-5 text-on-primary" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-xl font-bold text-xy-on-bg mb-4">販売業者情報</h2>
+                  <h2 className="text-xl font-bold text-on-background mb-4">販売業者情報</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">会社名</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">アビクト北日本</dd>
+                      <dt className="font-semibold text-on-background">会社名</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">アビクト北日本</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">所在地</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">
+                      <dt className="font-semibold text-on-background">所在地</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">
                         〒003-0002<br />
                         北海道札幌市白石区東札幌２条６丁目４－１８－３０１
                       </dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">電話番号</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">011-833-4945</dd>
+                      <dt className="font-semibold text-on-background">電話番号</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">011-833-4945</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">受付時間</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">平日 9:00〜18:00（土日祝日を除く）</dd>
+                      <dt className="font-semibold text-on-background">受付時間</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">平日 9:00〜18:00（土日祝日を除く）</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">事業内容</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">
+                      <dt className="font-semibold text-on-background">事業内容</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">
                         ・企業評価支援ツールの開発・提供<br />
                         ・ビジネスコンサルティングサービス<br />
                         ・財務分析ツールの開発<br />
@@ -66,60 +66,60 @@ export default function SpecifiedCommercialTransactionAct() {
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
+            <section className="border-b border-outline-variant pb-6">
               <div className="flex items-start gap-4">
                 <div className="bg-green-50 p-3  flex-shrink-0">
                   <Mail className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-xl font-bold text-xy-on-bg mb-4">連絡先</h2>
+                  <h2 className="text-xl font-bold text-on-background mb-4">連絡先</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-xy-primary">support@valuepal.jp</dd>
+                      <dt className="font-semibold text-on-background">メールアドレス</dt>
+                      <dd className="sm:col-span-2 text-on-primary">support@snxwx.vip</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-xy-on-bg">受付時間</dt>
-                      <dd className="sm:col-span-2 text-xy-on-surface-variant">お問い合わせは24時間受付（回答は営業時間内）</dd>
+                      <dt className="font-semibold text-on-background">受付時間</dt>
+                      <dd className="sm:col-span-2 text-on-surface-variant">お問い合わせは24時間受付（回答は営業時間内）</dd>
                     </div>
                   </dl>
                 </div>
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">サービス内容</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">サービス内容</h2>
               <div className="bg-slate-50  p-5">
-                <h3 className="font-bold text-xy-on-bg mb-3">提供サービス</h3>
-                <ul className="space-y-2 text-xy-on-surface-variant">
+                <h3 className="font-bold text-on-background mb-3">提供サービス</h3>
+                <ul className="space-y-2 text-on-surface-variant">
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>AI技術を活用した株式情報の提供および分析サービス</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>株価データ、チャート、テクニカル指標の表示</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>AI分析レポートの生成と提供</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>投資情報の提供（情報提供のみ、投資助言には該当しません）</span>
                   </li>
                 </ul>
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">サービス料金</h2>
-              <div className="bg-xy-surface-container  p-5 border-2 border-blue-200">
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">サービス料金</h2>
+              <div className="bg-surface-container  p-5 border-2 border-blue-200">
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="font-bold text-xy-on-bg mb-1">基本サービス</h3>
-                      <p className="text-sm text-xy-on-surface-variant">
+                      <h3 className="font-bold text-on-background mb-1">基本サービス</h3>
+                      <p className="text-sm text-on-surface-variant">
                         株価情報の閲覧、AI診断機能、レポートダウンロード
                       </p>
                     </div>
@@ -127,8 +127,8 @@ export default function SpecifiedCommercialTransactionAct() {
                       <p className="text-2xl font-bold text-green-600">現在無料</p>
                     </div>
                   </div>
-                  <div className="bg-xy-bg rounded p-3">
-                    <p className="text-sm text-xy-on-surface-variant leading-relaxed">
+                  <div className="bg-background rounded p-3">
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
                       現在、当サービスは基本機能を無料で提供しております。
                       今後、プレミアム機能を追加する場合、または価格体系が変更される場合は、事前にお知らせいたします。
                     </p>
@@ -137,73 +137,73 @@ export default function SpecifiedCommercialTransactionAct() {
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">お支払い方法</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">お支払い方法</h2>
               <div className="bg-slate-50  p-5">
-                <p className="text-xy-on-surface-variant leading-relaxed">
+                <p className="text-on-surface-variant leading-relaxed">
                   現在、有料サービスは提供しておりません。
                   今後、有料プランを導入する際は、以下の決済方法を予定しております。
                 </p>
-                <ul className="mt-3 space-y-2 text-xy-on-surface-variant">
+                <ul className="mt-3 space-y-2 text-on-surface-variant">
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>クレジットカード決済（Visa、Mastercard、JCB、American Express等）</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>銀行振込</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>コンビニ決済</span>
                   </li>
                 </ul>
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">サービス提供時期</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">サービス提供時期</h2>
               <div className="bg-slate-50  p-5">
-                <p className="text-xy-on-surface-variant leading-relaxed">
+                <p className="text-on-surface-variant leading-relaxed">
                   サービスはお申し込み後、すぐにご利用いただけます。
                   AI診断結果の生成には、通常数秒から数十秒程度のお時間をいただきます（サーバー状況により変動する場合があります）。
                 </p>
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">返品・キャンセルについて</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">返品・キャンセルについて</h2>
               <div className="bg-slate-50  p-5">
-                <h3 className="font-bold text-xy-on-bg mb-3">無料サービスについて</h3>
-                <p className="text-xy-on-surface-variant leading-relaxed mb-4">
+                <h3 className="font-bold text-on-background mb-3">無料サービスについて</h3>
+                <p className="text-on-surface-variant leading-relaxed mb-4">
                   現在提供している無料サービスについては、
                   いつでもご利用を停止いただけます。
                 </p>
-                <h3 className="font-bold text-xy-on-bg mb-3">今後提供予定の有料サービスについて</h3>
-                <p className="text-xy-on-surface-variant leading-relaxed">
+                <h3 className="font-bold text-on-background mb-3">今後提供予定の有料サービスについて</h3>
+                <p className="text-on-surface-variant leading-relaxed">
                   デジタルコンテンツの性質上、原則として返品・返金はお受けできません。
                   ただし、以下の場合は返金対応を検討いたします。
                 </p>
-                <ul className="mt-3 space-y-2 text-xy-on-surface-variant">
+                <ul className="mt-3 space-y-2 text-on-surface-variant">
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>システムの不具合により、サービスが正常に提供されなかった場合</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-xy-primary mt-1">•</span>
+                    <span className="text-on-primary mt-1">•</span>
                     <span>当社の責に帰すべき事由により、サービス提供が不可能となった場合</span>
                   </li>
                 </ul>
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">個人情報の取り扱い</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">個人情報の取り扱い</h2>
               <div className="bg-slate-50  p-5">
-                <p className="text-xy-on-surface-variant leading-relaxed mb-3">
+                <p className="text-on-surface-variant leading-relaxed mb-3">
                   お客様の個人情報は、個人情報保護法に基づき適切に管理いたします。
                   詳細は
-                  <a href="https://xydxd.vip/privacy" className="text-xy-primary hover:underline font-semibold mx-1">
+                  <a href="https://snxwx.vip/privacy" className="text-on-primary hover:underline font-semibold mx-1">
                     プライバシーポリシー
                   </a>
                   をご確認ください。
@@ -211,11 +211,11 @@ export default function SpecifiedCommercialTransactionAct() {
               </div>
             </section>
 
-            <section className="border-b border-xy-outline-variant pb-6">
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">免責事項</h2>
+            <section className="border-b border-outline-variant pb-6">
+              <h2 className="text-xl font-bold text-on-background mb-4">免責事項</h2>
               <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-lg">
                 <p className="text-amber-900 font-semibold mb-3">重要なお知らせ</p>
-                <div className="space-y-2 text-xy-on-surface-variant text-sm leading-relaxed">
+                <div className="space-y-2 text-on-surface-variant text-sm leading-relaxed">
                   <p>
                     当サービスは、AI技術を活用した株式情報の提供および分析ツールであり、
                     投資助言業務、投資一任業務、金融商品仲介業務には該当しません。
@@ -235,21 +235,21 @@ export default function SpecifiedCommercialTransactionAct() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-xy-on-bg mb-4">お問い合わせ</h2>
-              <div className="bg-xy-surface-container  p-6 border-2 border-blue-200">
-                <p className="text-xy-on-surface-variant leading-relaxed mb-4">
+              <h2 className="text-xl font-bold text-on-background mb-4">お問い合わせ</h2>
+              <div className="bg-surface-container  p-6 border-2 border-blue-200">
+                <p className="text-on-surface-variant leading-relaxed mb-4">
                   特定商取引法に関するご質問、その他お問い合わせは、
                   以下の方法でご連絡ください。
                 </p>
                 <div className="flex items-start gap-3 mb-4">
-                  <Mail className="w-5 h-5 text-xy-primary mt-1 flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-on-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-xy-on-bg mb-1">メール</p>
-                    <p className="text-xy-primary">support@valuepal.jp</p>
-                    <p className="text-sm text-xy-on-surface-variant mt-1">お問い合わせは24時間受付（回答は営業時間内）</p>
+                    <p className="font-semibold text-on-background mb-1">メール</p>
+                    <p className="text-on-primary">support@snxwx.vip</p>
+                    <p className="text-sm text-on-surface-variant mt-1">お問い合わせは24時間受付（回答は営業時間内）</p>
                   </div>
                 </div>
-                <a href="https://xydxd.vip/contact"
+                <a href="https://snxwx.vip/contact"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white  hover:bg-blue-700 transition-colors font-semibold"
                 >
                   お問い合わせフォームへ
@@ -258,8 +258,8 @@ export default function SpecifiedCommercialTransactionAct() {
             </section>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-xy-outline-variant">
-            <p className="text-sm text-xy-on-surface-variant text-center">
+          <div className="mt-8 pt-6 border-t border-outline-variant">
+            <p className="text-sm text-on-surface-variant text-center">
               最終更新日: 2025年1月15日
             </p>
           </div>
