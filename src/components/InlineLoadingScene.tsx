@@ -5,12 +5,15 @@ export default function InlineLoadingScene({ isVisible }: InlineLoadingSceneProp
   if (!isVisible) return null;
   return (
     <div className="w-full animate-fadeIn py-4">
-      <div className="neumorphic-card rounded-xl p-4 flex flex-col gap-4 items-center text-center">
-        <div className="neumorphic-input rounded-full w-12 h-12 flex items-center justify-center">
-          <svg className="w-6 h-6 text-xy-primary animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
+      <div className="glass-panel border border-primary/10 rounded-xl p-component-padding-x flex flex-col gap-stack-gap items-center text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-fixed/20 to-transparent pointer-events-none" />
+        <div className="w-12 h-12 rounded-full bg-surface-container-high/50 border border-outline-variant/30 flex items-center justify-center relative z-10">
+          <div className="animate-spin h-6 w-6 border-2 border-surface-container-highest border-t-primary rounded-full" />
         </div>
-        <h3 className="font-display text-[20px] text-xy-on-bg" style={{ fontWeight: 600 }}>診断中...</h3>
-        <LoadingProgressBars isVisible={isVisible} />
+        <h3 className="font-headline-md text-headline-md text-on-background relative z-10">診断中...</h3>
+        <div className="w-full relative z-10">
+          <LoadingProgressBars isVisible={isVisible} />
+        </div>
       </div>
     </div>
   );

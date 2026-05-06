@@ -13,10 +13,10 @@ const AdminLogin = lazy(() => import('./pages/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-xy-bg">
+  <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="text-center">
-      <div className="inline-block animate-spin h-12 w-12 border-2 border-xy-surface-highest border-t-xy-primary rounded-full mb-4"></div>
-      <p className="text-xy-on-bg font-body text-xs">読み込み中...</p>
+      <div className="inline-block animate-spin h-12 w-12 border-2 border-surface-container-highest border-t-primary rounded-full mb-4"></div>
+      <p className="text-on-surface-variant font-body-sm text-body-sm">読み込み中...</p>
     </div>
   </div>
 );
