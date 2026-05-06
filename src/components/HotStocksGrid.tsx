@@ -22,7 +22,7 @@ export default function HotStocksGrid({ stocks, onStockClick }: HotStocksGridPro
           <span className="material-symbols-outlined text-primary-fixed-dim">monitoring</span>
           日経平均 注目銘柄
         </h2>
-        <span className="font-data-mono text-label-xs text-outline bg-surface-container-high px-2 py-1 rounded">LIVE_DATA</span>
+        <span className="font-data-mono text-label-xs text-outline bg-surface-container-high px-2 py-1 rounded">リアルタイム</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stocks.map((stock) => (

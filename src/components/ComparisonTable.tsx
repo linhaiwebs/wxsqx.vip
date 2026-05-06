@@ -1,8 +1,8 @@
 export default function ComparisonTable() {
   const rows = [
-    { label: 'スピード (Speed)', before: 'hourglass_empty', after: 'bolt' },
-    { label: '精度 (Accuracy)', before: 'trending_flat', after: 'check_circle' },
-    { label: 'カスタマイズ (Customization)', before: 'close', after: 'check_circle' },
+    { label: 'スピード', before: 'hourglass_empty', after: 'bolt' },
+    { label: '精度', before: 'trending_flat', after: 'check_circle' },
+    { label: 'カスタマイズ', before: 'close', after: 'check_circle' },
   ];
 
   return (
@@ -12,13 +12,13 @@ export default function ComparisonTable() {
           <span className="material-symbols-outlined text-primary-fixed-dim">fact_check</span>
           選ばれる理由
         </h2>
-        <span className="font-data-mono text-label-xs text-outline bg-surface-container-high px-2 py-1 rounded">SYS_CMP_01</span>
+        <span className="font-data-mono text-label-xs text-outline bg-surface-container-high px-2 py-1 rounded">比較データ</span>
       </div>
       <div className="bg-surface-container-low border border-outline-variant rounded overflow-hidden">
         <div className="grid grid-cols-3 border-b border-outline-variant bg-surface-container-highest font-data-mono text-data-mono p-4">
           <div className="text-outline">指標</div>
           <div className="text-outline text-center">従来分析</div>
-          <div className="text-primary-fixed-dim text-center font-bold">SNXWX AI</div>
+          <div className="text-primary-fixed-dim text-center font-bold">SNXWX 診断</div>
         </div>
         {rows.map((row, i) => (
           <div key={i} className={`grid grid-cols-3 p-4 items-center group hover:bg-surface-container-high transition-colors ${i < rows.length - 1 ? 'border-b border-outline-variant' : ''}`}>

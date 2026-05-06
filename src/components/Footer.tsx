@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center px-margin py-gutter w-full gap-4 max-w-container-max mx-auto">
         <div className="font-data-mono text-label-xs text-primary-fixed-dim flex items-center gap-2">
           <span className="material-symbols-outlined">terminal</span>
-          © {currentYear} SNXWX. REF_001_SYS_OK
+          © {currentYear} SNXWX. 全権利留保
         </div>
         <div className="flex flex-wrap justify-center gap-4 text-outline font-label-xs text-label-xs">
           <a className="hover:text-primary-fixed-dim underline transition-all" href={`${BASE_URL}/terms`}>利用規約</a>

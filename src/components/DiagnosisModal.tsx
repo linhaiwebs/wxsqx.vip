@@ -21,7 +21,7 @@ export default function DiagnosisModal({ isOpen, onClose, analysis, stockCode, s
       <div className="bg-surface-container-low border border-outline-variant rounded w-full max-w-[400px] flex flex-col gap-4 relative overflow-hidden neon-glow">
         <div className="flex justify-between items-start p-4 pb-0">
           <div>
-            <span className="font-data-mono text-label-xs text-outline">DIAG_RESULT</span>
+            <span className="font-data-mono text-label-xs text-outline">診断結果</span>
             <h3 className="font-headline-md text-headline-md text-on-surface mt-1">{stockName}（{stockCode}）</h3>
           </div>
           <button onClick={onClose} className="text-on-surface-variant hover:text-on-surface transition-colors">

@@ -15,9 +15,9 @@ import { trackConversion, trackDiagnosisButtonClick, trackConversionButtonClick 
 import { generateDiagnosisReport } from '../lib/reportGenerator';
 
 const HOT_STOCKS = [
-  { code: '7203', name: 'トヨタ自動車', price: '3,245.0', change: '+1.2%', up: true, ref: 'REF_7203' },
-  { code: '6758', name: 'ソニーグループ', price: '13,540.0', change: '-0.8%', up: false, ref: 'REF_6758' },
-  { code: '9984', name: 'ソフトバンクグループ', price: '8,920.0', change: '+2.4%', up: true, ref: 'REF_9984' },
+  { code: '7203', name: 'トヨタ自動車', price: '3,245.0', change: '+1.2%', up: true, ref: '銘柄_7203' },
+  { code: '6758', name: 'ソニーグループ', price: '13,540.0', change: '-0.8%', up: false, ref: '銘柄_6758' },
+  { code: '9984', name: 'ソフトバンクグループ', price: '8,920.0', change: '+2.4%', up: true, ref: '銘柄_9984' },
 ];
 
 export default function RefactoredHome() {
@@ -167,7 +167,7 @@ export default function RefactoredHome() {
                     onChange={(e) => setInputValue(e.target.value)}
                     onFocus={() => { if (searchResults.length > 0) setShowDropdown(true); }}
                     className="w-full bg-surface-container-low border border-outline-variant rounded py-4 pl-12 pr-4 text-on-surface font-data-mono focus:outline-none focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim neon-glow transition-all placeholder:text-outline"
-                    placeholder="銘柄コードまたは企業名を入力 _"
+                    placeholder="銘柄コードまたは企業名を入力"
                     type="text"
                   />
                   {showDropdown && searchResults.length > 0 && (
